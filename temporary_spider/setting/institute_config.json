@@ -1,0 +1,20 @@
+{
+  "CarSpider": {
+    "https://www.edmunds.com/car-news/": {
+      "base_url": "https://www.edmunds.com/car-news/",
+      "host": "edmunds.com",
+      "module_name": "Edmunds Car News",
+      "module_url": "https://www.edmunds.com/car-news/",
+      "split_module": "{}",
+      "source": "Edmunds",
+      "website_name": "Edmunds",
+      "language": 2,
+      "language_str": "en",
+      "article_type": 0,
+      "max_page": 2,
+      "start_page": 1,
+      "page_size": 1,
+      "lis_xpath": "//ul[@class='list-unstyled']/li/a/@href|//div[contains(@class,'car-news-card')]/a/@href|//div[@class='video-card car-news-card row']/div[@class='article-info mt-1 col-12']/a/@href"
+    }
+  }
+}

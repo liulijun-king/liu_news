@@ -1,0 +1,154 @@
+{
+  "HotWeb": {
+    "https://yibaochina.com/": {
+      "base_url": "https://yibaochina.com/",
+      "host": "yibaochina.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//ul[@class='monsterinsights-widget-popular-posts-list']/li/a",
+      "spider_module": "html",
+      "name": "热门文章"
+    },
+    "https://cn.wsj.com/zh-hans/news/world": {
+      "base_url": "https://cn.wsj.com/zh-hans/news/world",
+      "host": "cn.wsj.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//ol[@class='WSJTheme--list-reset--3pR-r52l ']/li/a",
+      "spider_module": "html",
+      "name": "热门视频"
+    },
+    "https://www.wsj.com/world/asia": {
+      "base_url": "https://www.wsj.com/world/asia",
+      "host": "wsj.com",
+      "language": "en",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='css-xynwcr']/div/div[@class='css-dhwksh']/div/a",
+      "spider_module": "html",
+      "name": "Most Popular in World"
+    },
+    "https://www.washingtonpost.com/": {
+      "base_url": "https://www.washingtonpost.com/",
+      "host": "washingtonpost.com",
+      "language": "en",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='flex flex-row']/div[contains(@class,'has-sidebar left wrap-text')]/div/div/h2/a",
+      "spider_module": "html",
+      "name": "MOST READ"
+    },
+    "https://money.udn.com/rank/newest/1001/0/1": {
+      "base_url": "https://money.udn.com/rank/newest/1001/0/1",
+      "host": "money.udn.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//ol[@class='rank__list']/li[@class='rank__item']/div[@class='rank__wrapper']/h4/a",
+      "spider_module": "html",
+      "name": "編輯精選"
+    },
+    "https://udn.com/news/breaknews/1/4": {
+      "base_url": "https://udn.com/news/breaknews/1/4",
+      "host": "udn.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='rounded-thumb__list']/h3/a",
+      "spider_module": "html",
+      "name": "熱門新聞"
+    },
+    "https://tw.yahoo.com/fp_ms/_rcv/remote?ctrl=Stream&m_id=react-wafer-stream&m_mode=json&rid=5ma0b81igl208&lang=zh-Hant-TW&partner=none&region=TW&site=fp": {
+      "base_url": "https://tw.yahoo.com/fp_ms/_rcv/remote?ctrl=Stream&m_id=react-wafer-stream&m_mode=json&rid=5ma0b81igl208&lang=zh-Hant-TW&partner=none&region=TW&site=fp",
+      "host": "tw.yahoo.com",
+      "language": "zh",
+      "char": "utf-8",
+      "html_xpath": "$.html",
+      "lis_xpath": "//ul/li//h3/a",
+      "url_xpath": "./@href",
+      "data": "{'bucket':'','config':{'tabIndex':0,'tabFujiUiConfig':{'enableImageVideoSameSizeExperience':true,'enableLargeVideoExperience':false,'standpointTopic':{'enabled':false,'frequency':5,'i13n':{'itc':0,'sec':'strm','subsec':'tag'},'linkPattern':'https://tw.news.yahoo.com/tag/{topic}','postText':'\\u4E0D\\u540C\\u5A92\\u9AD4\\u89C0\\u9EDE','preText':'\\u95DC\\u65BC'}},'ncpParams':{'query':{'adsClusterEnabled':false,'adsFrequency':4,'adsImageTags':'214x112|2|80','adsType':'STRM,STRM_VIDEO','imageSizes':'428x240','imageTags':'428x240|2|80','adsSectionId':5413237,'lang':'zh-Hant-TW','region':'TW','spaceId':152963594,'adsEnabled':true,'adsTimeout':450,'adsVideoMaxCount':2,'count':170,'clientId':'abu-web','device':'desktop','enableStreamPubtime':false,'id':'ntk-main-stream','namespace':'abu','version':'v2'}},'processingParams':{'adsImageTag':'214x112','imageTag':'428x240','preferHqImages':true,'preferPreviewOverOffnetUrl':false,'relative_links':false,'videoAdImageTag':'214x112'},'adMeta':{'enableAdCountdown':false,'sponsoredUrl':'https://legal.yahoo.com/tw/zh-hant/yahoo/privacy/adinfo/index.html','overrideSponsoredByLabel':'Sponsored','enableIconMoneyball':false},'mrt':{'static':true},'features':{'enableStreamPubtime':false},'i13n':{'itc':0},'service':'WaferStreamService.fp','xhrPathPrefix':'/fp_ms/_rcv/remote','view':'tabFuji'},'lang':'zh-Hant-TW','region':'TW','ctrl':'Stream','m_id':'react-wafer-stream','m_mode':'json','rid':'5ma0b81igl208','partner':'none','site':'fp'}",
+      "title_xpath": "string(.)",
+      "request_module": "post",
+      "spider_module": "html_json",
+      "name": "熱門"
+    },
+    "https://www.setn.com/Catalog.aspx?PageGroupID=41": {
+      "base_url": "https://www.setn.com/Catalog.aspx?PageGroupID=41",
+      "host": "setn.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='top-hot-list']/ul/li/a",
+      "spider_module": "html",
+      "name": "熱門新聞"
+    },
+    "https://hk.on.cc/hk/bkn/hitcount/web/js/hitCount_822_UTF8.js": {
+      "base_url": "https://hk.on.cc/hk/bkn/hitcount/web/js/hitCount_822_UTF8.js",
+      "host": "orientaldaily.on.cc",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "$[*]",
+      "url_xpath": "$.link",
+      "title_xpath": "$.title",
+      "spider_module": "json",
+      "request_module": "get",
+      "name": "東網最高瀏覧"
+    },
+    "https://www.nikkei.com/api/sokuho/v1/sokuho-technology/?volume=5": {
+      "base_url": "https://www.nikkei.com/api/sokuho/v1/sokuho-technology/?volume=5",
+      "host": "nikkei.com",
+      "language": "ja",
+      "char": "utf-8",
+      "lis_xpath": "$.articles[*]",
+      "url_xpath": "$.pageUrl",
+      "title_xpath": "$.title",
+      "spider_module": "json",
+      "request_module": "get",
+      "name": "ランキング（テック）"
+    },
+    "https://news.ebc.net.tw/": {
+      "base_url": "https://news.ebc.net.tw/",
+      "host": "news.ebc.net.tw",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='hot-half']/ol/li/a",
+      "spider_module": "html",
+      "name": "熱門"
+    },
+    "https://elpais.com/": {
+      "base_url": "https://elpais.com/",
+      "host": "elpais.com",
+      "language": "es",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='b-t_a _df']/ol/li/a",
+      "spider_module": "html",
+      "name": "Lo más visto"
+    },
+    "https://www.economist.com/": {
+      "base_url": "https://www.economist.com/",
+      "host": "economist.com",
+      "language": "en",
+      "char": "utf-8",
+      "lis_xpath": "//ol/li[contains(@class,'css-')]/div[contains(@class,'css-')]/h3/a",
+      "spider_module": "html",
+      "name": "Stories most read by subscribers"
+    },
+    "https://www.cbc.ca/graphql": {
+      "base_url": "https://www.cbc.ca/graphql",
+      "host": "cbc.ca",
+      "language": "ru",
+      "char": "utf-8",
+      "lis_xpath": "$.data.allContentItems.nodes[*]",
+      "url_xpath": "$.href",
+      "title_xpath": "$.title",
+      "data": "{'query':'query trending($lineupSlug: String, $categorySlug: String, $pageSize: Int) {\\n    allContentItems(lineupSlug: $lineupSlug, categorySlug: $categorySlug, pageSize: $pageSize) {\\n        nodes {\\n            sourceId\\n            title\\n            flag\\n            href: url\\n            imageLarge\\n            trending {\\n                numViewers\\n                numViewersSRS\\n            }\\n        }\\n    }\\n}','variables':{'lineupSlug':'trending-news','categorySlug':'empty-category','pageSize':5}}",
+      "hot_xpath": "$.trending.numViewers",
+      "spider_module": "json",
+      "name": "Popular Now"
+    },
+    "https://www.backchina.com/news/": {
+      "base_url": "https://www.backchina.com/news/",
+      "host": "backchina.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='eis_f2'][1]/div[@class='block move-span']/div[@class='dxb_bc']/div[@class='module cl xl xl1']/ul[1]/li/a",
+      "spider_module": "html",
+      "name": "实时热点"
+    }
+  }
+}
