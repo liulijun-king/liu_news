@@ -20,7 +20,7 @@ from lxml import etree
 
 from base_spider import Base_spider
 from tools.base_tools import req_get, get_md5, time_deal, get_date, get_file_type, url_join
-from tools.hw_obs import HwObs
+from tools.mini_down import MiniDown
 
 
 class HeadSpider(Base_spider):
@@ -247,7 +247,7 @@ class HeadSpider(Base_spider):
 if __name__ == '__main__':
     producer = KafkaProducer(
         bootstrap_servers=['140.210.203.161:9092', '140.210.219.168:9092', '140.210.207.185:9092'])
-    hw_obs = HwObs()
+    hw_obs = MiniDown()
     # "192.168.6.1:1984"
     proxies = {
         "http": "127.0.0.1:7890",
