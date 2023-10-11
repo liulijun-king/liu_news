@@ -19,7 +19,6 @@ from urllib.parse import urljoin
 import datetime
 from loguru import logger
 from lxml import etree
-from obs import ObsClient
 
 from settings.db_config import proxies, USER_AGENT_LIST
 from spider.base_spider import Base_spider
