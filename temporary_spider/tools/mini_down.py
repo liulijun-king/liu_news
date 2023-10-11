@@ -4,9 +4,10 @@
 # @Site    : 
 # @File    : mini_down.py
 # @Software: PyCharm
-from minio import Minio
-from tools.base_tools import get_md5
+import hashlib
 from io import BytesIO
+
+from minio import Minio
 
 
 class MiniDown(object):
@@ -24,6 +25,14 @@ class MiniDown(object):
         data = BytesIO(content)
         name = minio_client.put_object('zhongxincaiji', file_name, data=data, length=len(content))
         print(name)
+
+
+def get_md5(val):
+    """把目标数据进行哈希，用哈希值去重更快"""
+    # val = str(val)
+    md5 = hashlib.md5()
+    md5.update(val.encode('utf-8'))
+    return md5.hexdigest()
 
 
 if __name__ == '__main__':
@@ -46,6 +55,6 @@ if __name__ == '__main__':
         'sec-ch-ua-platform': '"Windows"',
     }
     url = 'https://thumbor.ftacademy.cn/unsafe/738x415/picture/9/000177349_piclink.jpg'
-    response = requests.get(url, headers=headers, proxies={'https': '127.0.0.1:7890'})
+    response = requests.get(url, headers=headers)
     md = MiniDown()
     md.upload_file(f"{get_md5(url)}.jpg", response.content)
