@@ -223,7 +223,7 @@ class HeadSpider(Base_spider):
             responses = req_get(img, headers=self.headers, proxies=self.is_proxies)
             end_name = get_file_type(responses.content, img)
             file_name = f"topic_c1_original_keynewswebsite/{datetime.datetime.now().strftime('%Y-%m-%d').replace('-', '')}/{get_md5(img)}.{end_name}"
-            res = self.hw_db.up_data(file_name, responses.content)
+            res = self.hw_db.upload_file(file_name, responses.content)
             if res:
                 logger.info("文件存储成功!")
                 end_result.append(file_name)
