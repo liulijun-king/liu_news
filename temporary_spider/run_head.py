@@ -5,13 +5,13 @@
 # @File    : run_head.py
 # @Software: PyCharm
 from kafka import KafkaProducer
-from tools.hw_obs import HwObs
+from tools.mini_down import MiniDown
 from header_spider.header_spider import HeadSpider
 
 if __name__ == '__main__':
     producer = KafkaProducer(
         bootstrap_servers=['140.210.203.161:9092', '140.210.219.168:9092', '140.210.207.185:9092'])
-    hw_obs = HwObs()
+    hw_obs = MiniDown()
     proxies = {
         "http": "127.0.0.1:7890",
         "https": "127.0.0.1:7890"
