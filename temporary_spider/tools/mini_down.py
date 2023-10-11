@@ -29,7 +29,6 @@ class MiniDown(object):
 
 def get_md5(val):
     """把目标数据进行哈希，用哈希值去重更快"""
-    # val = str(val)
     md5 = hashlib.md5()
     md5.update(val.encode('utf-8'))
     return md5.hexdigest()
