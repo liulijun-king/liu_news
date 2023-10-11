@@ -23,7 +23,6 @@ from tools.req_tools import req_chrome_get, req_chrome_post
 from tools.proxy_get import queue_empty
 
 
-
 def retry_error(exception):
     print(exception)
     return isinstance(exception, Exception)
@@ -579,14 +578,6 @@ def ergodic_file(base):
         for f in fs:
             all_f.append(f"{root}/{f}")
     return all_f
-
-
-
-
-
-
-
-
 
 
 def get_files_type(file_url):
