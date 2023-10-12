@@ -1,0 +1,7 @@
+itemadapter==0.2.0
+parsel==1.6.0
+redis==3.5.3
+requests==2.25.0
+Scrapy==2.4.0
+SQLAlchemy==1.4.39
+larkspur~=0.2.0

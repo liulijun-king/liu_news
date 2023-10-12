@@ -1,0 +1,15 @@
+{
+  "item_info": {
+    "user_name": "//*[@itemprop='name']/text()",
+    "head_img": "//*[@itemprop='image']/img/@src",
+    "fans_count": "//div[@class=\"mb-3\"]/a[1]/span/text()",
+    "follow_count": "//div[@class=\"mb-3\"]/a[2]/span/text()",
+    "abstract": "//*[contains(@class,'p-note')]/div",
+    "organization": "//*[@itemprop='worksFor']//text()",
+    "address": "//*[@itemprop='homeLocation']//text()",
+    "email": "",
+    "user_url": "//*[@itemprop='url']/a/@href",
+    "twitter_url": "//*[@itemprop='twitter']/a/@href",
+    "stars_count": "//a[@data-tab-item=\"stars\"]/span[@class=\"Counter\"]/@title | //a[@data-tab-item=\"stars\"]/span[@class=\"Counter\"]/text()"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "forks_info": {
+    "li_xpath": "//div[@id=\"network\"]/div[@class=\"repo\"]",
+    "user_name": ".//a[@data-hovercard-type=\"user\"]/text() | .//a[@data-hovercard-type=\"organization\"]/text()",
+    "user_url": ".//a[@data-hovercard-type=\"user\"][2]/@href | .//a[@data-hovercard-type=\"organization\"][2]/@href",
+    "user_head": ".//a[@data-hovercard-type=\"user\"][1]/img/@src | .//a[@data-hovercard-type=\"organization\"][1]/img/@src",
+    "sub_project_name": "./a[last()]/text()",
+    "sub_project_url": "./a[last()]/@href"
+  }
+}
