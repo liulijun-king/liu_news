@@ -4,6 +4,7 @@ from typing import Dict, Any, Optional, List, Iterator, Set, Iterable
 from easy_spider_tool import is_format_json
 from sshtunnel import SSHTunnelForwarder
 from redis.cluster import RedisCluster
+from redis.cluster import ClusterNode
 
 from network_information_source.config import settings
 
@@ -50,9 +51,9 @@ class Redis(object):
             redis_prepare['port'] = server.local_bind_port
 
         startup_nodes = [
-            {"host": "47.97.216.52", "port": 6379},
-            {"host": "120.55.67.165", "port": 6379},
-            {"host": "120.26.85.177", "port": 6379},
+            ClusterNode("47.97.216.52",6379),
+            ClusterNode("120.55.67.165",6379),
+            ClusterNode("120.26.85.177",6379),
         ]
         self.conn = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
 
