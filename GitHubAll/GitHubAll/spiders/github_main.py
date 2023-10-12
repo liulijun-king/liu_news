@@ -43,10 +43,11 @@ class GithubMainSpider(scrapy.Spider):
 
                         yield scrapy.Request(url=url,
                                              headers=self.headers,
-                                             callback=self.json_parse,
-                                             meta={
-                                                 "proxy": queue_empty()
-                                             })
+                                             callback=self.json_parse
+                                             # meta={
+                                             #     "proxy": queue_empty()
+                                             # }
+                                             )
                     except(Exception,):
                         continue
 
@@ -99,8 +100,9 @@ class GithubMainSpider(scrapy.Spider):
                                  callback=self.parse,
                                  meta={
                                      "item": item,
-                                     "project_id": project_id,
-                                     "proxy": queue_empty()
+                                     "project_id": project_id
+                                     # ,
+                                     # "proxy": queue_empty()
                                  })
 
         except(Exception,) as e:
