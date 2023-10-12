@@ -1,7 +1,7 @@
 import json
 import traceback
-from kafka3 import KafkaProducer
-from kafka3.errors import KafkaError
+from kafka import KafkaProducer
+from kafka.errors import KafkaError
 from loguru import logger
 from network_information_source.common import CJsonEncoder
 
