@@ -1,9 +1,9 @@
 import json
 from typing import Dict, Any, Optional, List, Iterator, Set, Iterable
-
-import redis
+# import redis
 from easy_spider_tool import is_format_json
 from sshtunnel import SSHTunnelForwarder
+from redis.cluster import RedisCluster
 
 from network_information_source.config import settings
 
@@ -35,7 +35,6 @@ def create_ssh_tunnel():
         ssh_password=SSH_PASSWORD,
         remote_bind_address=(REDIS_CONNECT['host'], REDIS_CONNECT['port'])
     )
-
     return server
 
 
@@ -50,8 +49,15 @@ class Redis(object):
             server.start()
             redis_prepare['port'] = server.local_bind_port
 
-        pool = redis.ConnectionPool(**redis_prepare)
-        self.conn = redis.Redis(connection_pool=pool)
+        startup_nodes = [
+            {"host": "47.97.216.52", "port": 6379},
+            {"host": "120.55.67.165", "port": 6379},
+            {"host": "120.26.85.177", "port": 6379},
+        ]
+        self.conn = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
+
+        # pool = redis.ConnectionPool(**redis_prepare)
+        # self.conn = redis.Redis(connection_pool=pool)
 
 
 class RedisString(Redis):
