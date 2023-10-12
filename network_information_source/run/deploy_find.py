@@ -8,7 +8,7 @@ from network_information_source.config import settings, FindRedisTaskTopic
 from network_information_source.nis_utils import task_tools
 from network_information_source.scheduler import deploy
 from task_find_outbound import tsa
-
+import traceback
 RedisTaskTopic = FindRedisTaskTopic
 
 task_topic = f'{RedisTaskTopic.test_task.value}_{settings.REGION.name}' if settings.DEPLOY_VERIFY_DEBUG else f'{RedisTaskTopic.task.value}_{settings.REGION.name}'
@@ -24,7 +24,6 @@ options = {
 if __name__ == '__main__':
     with ThreadPoolExecutor(max_workers=settings.DEPLOY_FIND_THREAD_COUNT) as t:
         try:
-
             tasks = task_tools.pull(topic=task_topic, count=settings.DEPLOY_FIND_SINGLE_THREAD_TASK_COUNT,
                                     is_json=True)
             logger.info(f'正常运行')
@@ -53,6 +52,5 @@ if __name__ == '__main__':
                     print(future.result())
                 except Exception as ex:
                     logger.error(f'{ex}')
-
         except Exception as ex:
-            logger.error(f'{ex}')
+            logger.error(f'{traceback.format_exc()}')
