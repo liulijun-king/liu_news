@@ -1,0 +1,16 @@
+PYTHONPATH=$PATHONPATH:/u01/isi/CenterProject/network_information_source
+# 发现/验证任务分发境内
+*/1 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start task_find_domestic.py
+*/1 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start task_verify_domestic.py
+# 发现/验证任务任务分发境外
+*/1 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start task_find_outbound.py
+*/1 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start task_verify_outbound.py
+# 发现/验证任务任务分发共同
+*/1 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start task_find_both.py
+*/1 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start task_verify_both.py
+
+# 发现/验证任务执行
+*/10 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start deploy_find.py
+*/10 * * * * cd /u01/isi/CenterProject/network_information_source/run && bash main.sh start deploy_verify.py
+
+* */12 * * * cd /u01/isi/CenterProject/network_information_source/run && bash clear_log.sh
