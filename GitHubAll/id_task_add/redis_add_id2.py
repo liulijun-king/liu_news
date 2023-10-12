@@ -5,8 +5,18 @@ import redis
 
 from GitHubAll.settings import id_key
 from tools.bloom_filter import is_contains
+from redis.cluster import RedisCluster
+from redis.cluster import ClusterNode
 
-redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, max_connections=20, decode_responses=True)
+startup_nodes = [
+    ClusterNode("47.97.216.52", 6379),
+    ClusterNode("120.55.67.165", 6379),
+    ClusterNode("120.26.85.177", 6379),
+]
+redis_conn = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
+
+
+# redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, max_connections=20, decode_responses=True)
 
 
 def add_id():

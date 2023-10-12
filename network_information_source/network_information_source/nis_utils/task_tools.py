@@ -23,7 +23,6 @@ def task_pull(
         'tag_topic': redis_task_topic.tag_task.value,
         'region': region
     }
-    print(len(wait_tasks))
     for wait_task in wait_tasks:
         common_add_task(wait_task, **options)
 

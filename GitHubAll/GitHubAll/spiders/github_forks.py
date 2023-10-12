@@ -7,7 +7,8 @@ from loguru import logger
 
 from config.item_config import *
 from tools.common_tools import json_path, md5
-
+from redis.cluster import RedisCluster
+from redis.cluster import ClusterNode
 from tools.proxies import queue_empty
 
 
@@ -34,7 +35,14 @@ class GithubForksSpider(scrapy.Spider):
     config = json.load(open('./config/github_forks.json', 'r', encoding="utf-8"))
     # redis配置
     redis_key = "github_all:item_info_handle"
-    redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, decode_responses=False)
+    startup_nodes = [
+        ClusterNode("47.97.216.52", 6379),
+        ClusterNode("120.55.67.165", 6379),
+        ClusterNode("120.26.85.177", 6379),
+    ]
+    redis_conn = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
+
+    # redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, decode_responses=False)
 
     def start_requests(self):
         while True:
@@ -78,7 +86,8 @@ class GithubForksSpider(scrapy.Spider):
                 # 用户链接的md5
                 item["user_id"] = md5(item["user_url"])
                 # 子项目名
-                item["sub_project_name"] = commit_html.xpath(json_path(self.config, '$.forks_info.sub_project_name')).get("")
+                item["sub_project_name"] = commit_html.xpath(
+                    json_path(self.config, '$.forks_info.sub_project_name')).get("")
                 # 子项目链接
                 user_url = commit_html.xpath(json_path(self.config, '$.forks_info.sub_project_url')).get("")
                 item["sub_project_url"] = response.urljoin(user_url)

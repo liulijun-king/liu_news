@@ -6,9 +6,20 @@ import sys
 
 sys.path.append('../')
 from GitHubAll.settings import id_key
-# id_key = "gb_all:ids"
-redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, max_connections=20,
-                               decode_responses=True)
+from redis.cluster import RedisCluster
+from redis.cluster import ClusterNode
+
+startup_nodes = [
+    ClusterNode("47.97.216.52", 6379),
+    ClusterNode("120.55.67.165", 6379),
+    ClusterNode("120.26.85.177", 6379),
+]
+redis_conn = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
+
+#
+# # id_key = "gb_all:ids"
+# redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, max_connections=20,
+#                                decode_responses=True)
 
 
 def add_id():
