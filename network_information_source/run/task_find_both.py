@@ -18,7 +18,6 @@ region = '2'
 if __name__ == '__main__':
     try:
         wait_tasks = tsa.query_wait_tasks(crawl_mode=settings.FIND_CRAWL_MODE, region=region)
-        print(len(wait_tasks))
         task_pull(
             wait_tasks,
             FindRedisTaskTopic,
