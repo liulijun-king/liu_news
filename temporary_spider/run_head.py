@@ -12,6 +12,6 @@ if __name__ == '__main__':
     producer = KafkaProducer(
         bootstrap_servers=['8.130.131.161:9092', '8.130.94.243:9092', '8.130.37.191:9092'])
     hw_obs = MiniDown()
-    proxies = None
+    proxies = {'https':'127.0.0.1:7890'}
     mp = HeadSpider(is_proxies=proxies, hw_db=hw_obs, kafka_pro=producer)
     mp.id_split()

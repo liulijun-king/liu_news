@@ -68,7 +68,8 @@ def all_push_server(data_list, topic):
     """
     if data_list:
         data_list = [check_item(data) for data in data_list]
-        send_data(topic, data_list)
+        for data in data_list:
+            send_data(topic, data)
     else:
         logger.debug(f'【聚合推送】 长度:[{len(data_list)}]')
 
