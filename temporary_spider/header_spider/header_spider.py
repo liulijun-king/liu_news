@@ -114,7 +114,7 @@ class HeadSpider(Base_spider):
                 entity_url = url_join(url, li).strip()
                 self.entity_spider(entity_url)
         except Exception as e:
-            logger.error(f"列表页请求失败！{e}")
+            logger.error(f"列表页请求失败！{traceback.format_exc()}")
 
     def entity_spider(self, entity_url):
         try:

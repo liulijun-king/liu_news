@@ -62,7 +62,6 @@ def sha256_detail(text):
 def req_get(url, headers, params=None, cookies=None, proxies=None, verify=True, other_req=False, stream=None):
     if proxies:
         pro = queue_empty()
-        print(pro)
         proxies = {'http': pro, 'https': pro}
     if other_req:
         response = req_chrome_get(url, headers=headers, proxies=proxies)

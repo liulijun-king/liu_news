@@ -22,7 +22,6 @@ def proxy_pool() -> list:
     proxy_con = requests.get(proxy_url).text
     proxy_json = json.loads(proxy_con)
     proxy_text = [(proxy["ip"] + ':' + str(proxy["port"])) for proxy in proxy_json["data"]]
-    print(proxy_text)
     return proxy_text
 
 
