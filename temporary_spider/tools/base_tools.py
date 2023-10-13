@@ -60,6 +60,7 @@ def sha256_detail(text):
 
 @retry(retry_on_exception=retry_error, stop_max_attempt_number=3, wait_fixed=500)
 def req_get(url, headers, params=None, cookies=None, proxies=None, verify=True, other_req=False, stream=None):
+    print(proxies)
     if proxies:
         pro = queue_empty()
         proxies = {'http': pro, 'https': pro}
