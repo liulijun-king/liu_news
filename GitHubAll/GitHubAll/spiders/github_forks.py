@@ -1,15 +1,13 @@
 import json
 from datetime import datetime
 
-import redis
 import scrapy
 from loguru import logger
 
 from config.item_config import *
 from tools.common_tools import json_path, md5
-from redis.cluster import RedisCluster
-from redis.cluster import ClusterNode
 from tools.proxies import queue_empty
+from rediscluster import RedisCluster
 
 
 class GithubForksSpider(scrapy.Spider):
@@ -36,13 +34,15 @@ class GithubForksSpider(scrapy.Spider):
     # redis配置
     redis_key = "github_all:item_info_handle"
     startup_nodes = [
-        ClusterNode("47.97.216.52", 6379),
-        ClusterNode("120.55.67.165", 6379),
-        ClusterNode("120.26.85.177", 6379),
+        {"host": "47.97.216.52", "port": 6379},
+        {"host": "120.55.67.165", "port": 6379},
+        {"host": "120.26.85.177", "port": 6379}
     ]
-    redis_conn = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
-
-    # redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, decode_responses=False)
+    # 创建 Redis 集群连接
+    redis_conn = RedisCluster(
+        startup_nodes=startup_nodes,
+        decode_responses=True, socket_connect_timeout=30, password='gew29YAyi'
+    )
 
     def start_requests(self):
         while True:

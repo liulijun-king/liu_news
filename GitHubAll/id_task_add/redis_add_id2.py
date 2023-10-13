@@ -1,22 +1,21 @@
 #  开发时间：2022/6/23 10:15
 #  文件名称：redis_add_id2.py
 #  备注：添加id程序（去重）
-import redis
 
 from GitHubAll.settings import id_key
+from rediscluster import RedisCluster
 from tools.bloom_filter import is_contains
-from redis.cluster import RedisCluster
-from redis.cluster import ClusterNode
 
 startup_nodes = [
-    ClusterNode("47.97.216.52", 6379),
-    ClusterNode("120.55.67.165", 6379),
-    ClusterNode("120.26.85.177", 6379),
+    {"host": "47.97.216.52", "port": 6379},
+    {"host": "120.55.67.165", "port": 6379},
+    {"host": "120.26.85.177", "port": 6379}
 ]
-redis_conn = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
-
-
-# redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, max_connections=20, decode_responses=True)
+# 创建 Redis 集群连接
+redis_conn = RedisCluster(
+    startup_nodes=startup_nodes,
+    decode_responses=True, socket_connect_timeout=30, password='gew29YAyi'
+)
 
 
 def add_id():

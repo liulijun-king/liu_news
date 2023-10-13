@@ -6,9 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-import redis
-from redis.cluster import RedisCluster
-from redis.cluster import ClusterNode
+from rediscluster import RedisCluster
 
 # 是否推送数据
 is_put_data = True
@@ -19,13 +17,17 @@ user_url_key = 'gb_all:user_url_task'
 day_crawl_key = 'gb_all:day_crawl'
 day_crawl_forks = 'gb_all:day_forks'
 fork_crawl_key = 'gb_all:fork_crawl'
+
 startup_nodes = [
-    ClusterNode("47.97.216.52", 6379),
-    ClusterNode("120.55.67.165", 6379),
-    ClusterNode("120.26.85.177", 6379),
+    {"host": "47.97.216.52", "port": 6379},
+    {"host": "120.55.67.165", "port": 6379},
+    {"host": "120.26.85.177", "port": 6379}
 ]
-redis_conn= RedisCluster(startup_nodes=startup_nodes, decode_responses=True, password='gew29YAyi')
-# redis_conn = redis.StrictRedis(host='47.97.216.52', port=6379, db=5, socket_connect_timeout=15, decode_responses=True)
+# 创建 Redis 集群连接
+redis_conn = RedisCluster(
+    startup_nodes=startup_nodes,
+    decode_responses=True, socket_connect_timeout=30, password='gew29YAyi'
+)
 
 BOT_NAME = 'GitHubAll'
 
