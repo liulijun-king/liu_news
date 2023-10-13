@@ -60,11 +60,10 @@ def sha256_detail(text):
 
 @retry(retry_on_exception=retry_error, stop_max_attempt_number=3, wait_fixed=500)
 def req_get(url, headers, params=None, cookies=None, proxies=None, verify=True, other_req=False, stream=None):
-    print(proxies)
     if proxies:
         pro = queue_empty()
+        print(pro)
         proxies = {'http': pro, 'https': pro}
-    print(proxies)
     if other_req:
         response = req_chrome_get(url, headers=headers, proxies=proxies)
     else:
