@@ -63,6 +63,7 @@ def req_get(url, headers, params=None, cookies=None, proxies=None, verify=True, 
     if proxies:
         pro = queue_empty()
         proxies = {'http': pro, 'https': pro}
+    print(proxies)
     if other_req:
         response = req_chrome_get(url, headers=headers, proxies=proxies)
     else:
@@ -77,6 +78,7 @@ def req_post(url, headers=None, data=None, params=None, verify=True, cookies=Non
     if proxies:
         pro = queue_empty()
         proxies = {'http': pro, 'https': pro}
+    print(proxies)
     if other_req:
         response = req_chrome_post(url, headers=headers, data=data, proxies=proxies)
     else:
