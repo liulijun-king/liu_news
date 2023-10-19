@@ -17,6 +17,7 @@ from retrying import retry
 from loguru import logger
 from tools.proxy_get import queue_empty
 
+
 # from utils.server import SavaData
 # from utils.server_zs import add_sql_server
 
@@ -65,27 +66,16 @@ def sha256_detail(text):
 
 @retry(retry_on_exception=retry_error, stop_max_attempt_number=3, wait_fixed=500)
 def req_get(url, headers, params=None, cookies=None, proxies=None, verify=True):
-    if proxies:
-        pros=queue_empty()
-        pro = {'http://': pros,
-               'https://': pros}
-        response = requests.get(url=url, headers=headers, params=params, verify=verify, cookies=cookies,
-                                proxies=pro, timeout=10)
-        return response
-    else:
-        response = requests.get(url=url, headers=headers, params=params, cookies=cookies, timeout=10)
-        return response
+    response = requests.get(url=url, headers=headers, params=params, verify=verify, cookies=cookies,
+                            proxies=proxies, timeout=10)
+    return response
 
 
 @retry(retry_on_exception=retry_error, stop_max_attempt_number=3, wait_fixed=500)
 def req_post(url, headers=None, data=None, params=None, verify=True, cookies=None, proxies=None, json_data=None):
-    if proxies:
-        response = requests.post(url=url, headers=headers, data=data, params=params, verify=verify, cookies=cookies,
-                                 timeout=10,
-                                 proxies=proxies, json=json_data)
-    else:
-        response = requests.post(url=url, headers=headers, data=data, params=params, verify=verify, cookies=cookies,
-                                 timeout=10, json=json_data)
+    response = requests.post(url=url, headers=headers, data=data, params=params, verify=verify, cookies=cookies,
+                             timeout=10,
+                             proxies=proxies, json=json_data)
     return response
 
 
@@ -435,8 +425,6 @@ def inspection_time(date_list, min_time):
         if dds(data) > min_time:
             return False
     return True
-
-
 
 
 def wen_hai_parser_server(source_url, source_html, encoding=None):

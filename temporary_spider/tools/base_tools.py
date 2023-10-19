@@ -60,9 +60,6 @@ def sha256_detail(text):
 
 @retry(retry_on_exception=retry_error, stop_max_attempt_number=3, wait_fixed=500)
 def req_get(url, headers, params=None, cookies=None, proxies=None, verify=True, other_req=False, stream=None):
-    if proxies:
-        pro = queue_empty()
-        proxies = {'http': pro, 'https': pro}
     if other_req:
         response = req_chrome_get(url, headers=headers, proxies=proxies)
     else:
@@ -74,10 +71,6 @@ def req_get(url, headers, params=None, cookies=None, proxies=None, verify=True, 
 @retry(retry_on_exception=retry_error, stop_max_attempt_number=3, wait_fixed=500)
 def req_post(url, headers=None, data=None, params=None, verify=True, cookies=None, proxies=None, other_req=False,
              json_data=None):
-    if proxies:
-        pro = queue_empty()
-        proxies = {'http': pro, 'https': pro}
-    print(proxies)
     if other_req:
         response = req_chrome_post(url, headers=headers, data=data, proxies=proxies)
     else:

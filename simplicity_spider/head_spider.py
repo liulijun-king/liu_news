@@ -15,7 +15,11 @@ if __name__ == '__main__':
     producer = KafkaProducer(
         bootstrap_servers=['8.130.131.161:9092', '8.130.94.243:9092', '8.130.37.191:9092'])
     hw_obs = HwObs()
-    Fr(hw_db=hw_obs, kafka_pro=producer, is_proxies=None).id_split()
-    Td(hw_db=hw_obs, kafka_pro=producer, is_proxies=None).id_split()
-    Bcb(hw_db=hw_obs, kafka_pro=producer, is_proxies=None).id_split()
-    NyTime(hw_db=hw_obs, kafka_pro=producer, is_proxies=None).id_split()
+    is_proxies = {
+        'http': 'http://liulijun584268-zone-custom:9TL39WvUnboIdOI@proxy.ipidea.io:2333',
+        'https': 'http://liulijun584268-zone-custom:9TL39WvUnboIdOI@proxy.ipidea.io:2333'
+    }
+    Fr(hw_db=hw_obs, kafka_pro=producer, is_proxies=is_proxies).id_split()
+    Td(hw_db=hw_obs, kafka_pro=producer, is_proxies=is_proxies).id_split()
+    Bcb(hw_db=hw_obs, kafka_pro=producer, is_proxies=is_proxies).id_split()
+    NyTime(hw_db=hw_obs, kafka_pro=producer, is_proxies=is_proxies).id_split()

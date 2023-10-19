@@ -11,6 +11,9 @@ from header_spider.hot_web import HotWeb
 if __name__ == '__main__':
     producer = KafkaProducer(
         bootstrap_servers=['8.130.131.161:9092', '8.130.94.243:9092', '8.130.37.191:9092'])
-    proxies = None
+    proxies = {
+        'http': 'http://liulijun584268-zone-custom:9TL39WvUnboIdOI@proxy.ipidea.io:2333',
+        'https': 'http://liulijun584268-zone-custom:9TL39WvUnboIdOI@proxy.ipidea.io:2333'
+    }
     mp = HotWeb(is_proxies=proxies, kafka_pro=producer)
     mp.id_split()
