@@ -17,11 +17,19 @@ def proxy_pool() -> list:
     使用境外动态代理
     :return: 代理列表
     """
-    proxy_url = 'http://api.proxy.ipidea.io/getProxyIp?num=100&return_type=json&lb=6&sb=0&flow=1&regions=&protocol=http'
+    proxies = {
+        'http': 'http://liulijun584268-zone-custom:9TL39WvUnboIdOI@proxy.ipidea.io:2333',
+        'https': 'http://liulijun584268-zone-custom:9TL39WvUnboIdOI@proxy.ipidea.io:2333'
+    }
+
+    proxy_con = requests.get('http://ipinfo.ipidea.io', proxies=proxies)
+    # proxy_url = 'http://api.proxy.ipidea.io/getProxyIp?num=100&return_type=json&lb=6&sb=0&flow=1&regions=&protocol=http'
     # proxy_url = 'http://220.194.140.39:30022/getip?num=150&ip=&key=&source=zhima'
-    proxy_con = requests.get(proxy_url).text
-    proxy_json = json.loads(proxy_con)
-    proxy_text = [(proxy["ip"] + ':' + str(proxy["port"])) for proxy in proxy_json["data"]]
+    proxy_json = proxy_con.json()
+    proxy_text = []
+    for i in range(15):
+        pro = f'{proxy_json["ip"]}:2333'
+        proxy_text.append(pro)
     return proxy_text
 
 
