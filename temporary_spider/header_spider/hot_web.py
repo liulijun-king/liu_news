@@ -72,7 +72,7 @@ class HotWeb(Base_spider):
                 else:
                     entity_url = url_join(url, li.xpath("./@href")[0]).strip()
                 if self.config.get("title_xpath"):
-                    title = li.xpath(self.config.get("title_xpath")).strip()
+                    title = self.get_string(self.config.get("title_xpath"),li).strip()
                 else:
                     title = li.xpath("string(.)").strip()
                 if self.config.get("hot_xpath"):

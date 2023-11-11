@@ -1,5 +1,107 @@
 {
   "HotWeb": {
+    "https://www.zaobao.com.sg/global": {
+      "base_url": "https://www.zaobao.com.sg/global",
+      "host": "zaobao.com.sg",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='container-fluid']/div[@class='row']/div[@class='col-12']/a[@class='link link-article']",
+      "spider_module": "html",
+      "name": "即时新闻"
+    },
+    "https://sputniknews.cn/": {
+      "base_url": "https://sputniknews.cn/",
+      "host": "sputniknews.cn",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='section'][3]//div[@class='floor__cell'][1]//div[@class='cell-list__list']//a",
+      "spider_module": "html",
+      "title_xpath": "./span",
+      "name": "阅读最多"
+    },
+    "https://www.rfi.fr/cn/": {
+      "base_url": "https://www.rfi.fr/cn/",
+      "host": "rfi.fr",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='news__content']/div[@class='news__content__title']/a",
+      "spider_module": "html",
+      "name": "热门新闻"
+    },
+    "https://cn.nytimes.com": {
+      "base_url": "https://cn.nytimes.com",
+      "host": "nytimes.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@id='regularHomepage']//li//h3/a",
+      "spider_module": "html",
+      "name": "热门新闻"
+    },
+    "https://www.nikkei.com/access/": {
+      "base_url": "https://www.nikkei.com/access/",
+      "host": "nikkei.com",
+      "language": "jp",
+      "char": "utf-8",
+      "lis_xpath": "//ul[@class='m-miM32_list']//a",
+      "spider_module": "html",
+      "name": "アクセスランキング"
+    },
+    "https://www.dw.com/zh/%E5%9C%A8%E7%BA%BF%E6%8A%A5%E5%AF%BC/s-9058?&zhongwen=simp": {
+      "base_url": "https://www.dw.com/zh/%E5%9C%A8%E7%BA%BF%E6%8A%A5%E5%AF%BC/s-9058?&zhongwen=simp",
+      "host": "dw.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='col1 contentListTeaser']//a",
+      "spider_module": "html",
+      "name": "最多阅读"
+    },
+    "http://cnnews.chosun.com/": {
+      "base_url": "http://cnnews.chosun.com/",
+      "host": "cnnews.chosun.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='box_weekly']//a",
+      "spider_module": "html",
+      "name": "WEEKLY RANKING"
+    },
+    "https://www.chinatimes.com/hotnews?chdtv": {
+      "base_url": "https://www.chinatimes.com/hotnews?chdtv",
+      "host": "chinatimes.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//section[@class='hot-news detail']//h3/a",
+      "spider_module": "html",
+      "name": "热门新闻",
+      "other_req": true
+    },
+    "https://www.bbc.com/news": {
+      "base_url": "https://www.bbc.com/news",
+      "host": "bbc.com",
+      "language": "en",
+      "char": "utf-8",
+      "lis_xpath": "//div[@data-entityid='must-see#1']/../..//a",
+      "spider_module": "html",
+      "name": "Must See"
+    },
+    "https://www.asahi.com/": {
+      "base_url": "https://www.asahi.com/",
+      "host": "asahi.com",
+      "language": "jp",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='p-tab__body'][1]//li/a",
+      "title_xpath": "./span[2]",
+      "spider_module": "html",
+      "name": "速報ニュース"
+    },
+    "https://apnews.com/": {
+      "base_url": "https://apnews.com/",
+      "host": "apnews.com",
+      "language": "en",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='TwoColumnContainer7030'][1]/div[@class='TwoColumnContainer7030-container']/div[@class='TwoColumnContainer7030-column'][2]/div[@class='PageListRightRailA']/div[@class='PageListRightRailA-content']/div[@class='PageList-items-first']/div[@class='PagePromo']/div[@class='PagePromo-content']/div[@class='PagePromo-title']/a|//div[@class='TwoColumnContainer7030'][1]/div[@class='TwoColumnContainer7030-container']/div[@class='TwoColumnContainer7030-column'][2]/div[@class='PageListRightRailA']/div[@class='PageListRightRailA-content']/ol[@class='PageList-items']/li[@class='PageList-items-item']/div[@class='PagePromo']/div[@class='PagePromo-content']/div[@class='PagePromo-title']/a",
+      "spider_module": "html",
+      "name": "TOP STORIES"
+    },
     "https://yibaochina.com/": {
       "base_url": "https://yibaochina.com/",
       "host": "yibaochina.com",
