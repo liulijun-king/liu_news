@@ -8,6 +8,7 @@ import json
 import os
 import re
 import time
+import traceback
 
 import jsonpath
 from googletrans import Translator
@@ -99,7 +100,7 @@ class HotWeb(Base_spider):
             }
             self.send_data('topic_c1_original_headline', item)
         except Exception as e:
-            logger.error(f"列表页请求失败！{e}")
+            logger.error(f"列表页请求失败！{traceback.format_exc()}")
 
     def json_spider(self, url):
         try:
