@@ -64,7 +64,6 @@ class HotWeb(Base_spider):
                 res_html = response.content.decode(self.config.get("char"), "ignore")
             else:
                 res_html = response.content.decode("utf-8", "ignore")
-            print(res_html)
             html = etree.HTML(res_html)
             lis = html.xpath(self.config.get("lis_xpath"))
             event_list = []
@@ -83,6 +82,7 @@ class HotWeb(Base_spider):
                 else:
                     hot = 0
                 entity_url = re.sub("[\n\s\t]", "", entity_url)
+                print(f"标题：{title}")
                 event = {
                     "en": title,
                     "enzh": self.translator.translate(title, src='auto', dest='zh-cn').text,
