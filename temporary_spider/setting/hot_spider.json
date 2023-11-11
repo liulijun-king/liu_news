@@ -1,5 +1,14 @@
 {
   "HotWeb": {
+    "https://www.backchina.com/news/": {
+      "base_url": "https://www.backchina.com/news/",
+      "host": "backchina.com",
+      "language": "zh",
+      "char": "utf-8",
+      "lis_xpath": "//div[@class='eis_f2'][1]/div[@class='block move-span']/div[@class='dxb_bc']/div[@class='module cl xl xl1']/ul[1]/li/a",
+      "spider_module": "html",
+      "name": "实时热点"
+    },
     "https://www.zaobao.com.sg/global": {
       "base_url": "https://www.zaobao.com.sg/global",
       "host": "zaobao.com.sg",
@@ -242,15 +251,6 @@
       "hot_xpath": "$.trending.numViewers",
       "spider_module": "json",
       "name": "Popular Now"
-    },
-    "https://www.backchina.com/news/": {
-      "base_url": "https://www.backchina.com/news/",
-      "host": "backchina.com",
-      "language": "zh",
-      "char": "utf-8",
-      "lis_xpath": "//div[@class='eis_f2'][1]/div[@class='block move-span']/div[@class='dxb_bc']/div[@class='module cl xl xl1']/ul[1]/li/a",
-      "spider_module": "html",
-      "name": "实时热点"
     }
   }
 }
