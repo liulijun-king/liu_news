@@ -82,7 +82,6 @@ class HotWeb(Base_spider):
                     else:
                         hot = 0
                     entity_url = re.sub("[\n\s\t]", "", entity_url)
-
                     event = {
                         "en": title,
                         "enzh": self.translator.translate(title, src='auto', dest='zh-cn').text,

@@ -16,7 +16,7 @@
       "char": "utf-8",
       "lis_xpath": "//div[@class='section'][3]//div[@class='floor__cell'][1]//div[@class='cell-list__list']//a",
       "spider_module": "html",
-      "title_xpath": "./span",
+      "title_xpath": ".//span",
       "name": "阅读最多"
     },
     "https://www.rfi.fr/cn/": {
