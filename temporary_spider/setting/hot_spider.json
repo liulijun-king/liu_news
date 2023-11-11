@@ -5,7 +5,7 @@
       "host": "backchina.com",
       "language": "zh",
       "char": "utf-8",
-      "lis_xpath": "//div[@class='eis_f2'][1]/div[@class='block move-span']/div[@class='dxb_bc']/div[@class='module cl xl xl1']/ul[1]/li/a",
+      "lis_xpath": "//div[@class='eis_f2'][1]/div[@class='block move-span']/div[@class='dxb_bc']/div[@class='module cl xl xl1']/ul[1]//li/a",
       "spider_module": "html",
       "name": "实时热点"
     },
