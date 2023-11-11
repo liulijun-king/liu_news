@@ -82,6 +82,7 @@ class HotWeb(Base_spider):
                     else:
                         hot = 0
                     entity_url = re.sub("[\n\s\t]", "", entity_url)
+                    logger.info(f"当前循环标题：{title}")
                     event = {
                         "en": title,
                         "enzh": self.translator.translate(title, src='auto', dest='zh-cn').text,
