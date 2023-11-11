@@ -67,30 +67,32 @@ class HotWeb(Base_spider):
             html = etree.HTML(res_html)
             lis = html.xpath(self.config.get("lis_xpath"))
             event_list = []
-            print(len(lis))
             for index, li in enumerate(lis):
-                if self.config.get("url_xpath"):
-                    entity_url = url_join(url, li.xpath(self.config.get("url_xpath"))[0]).strip()
-                else:
-                    entity_url = url_join(url, li.xpath("./@href")[0]).strip()
-                if self.config.get("title_xpath"):
-                    title = self.get_string(self.config.get("title_xpath"), li).strip()
-                else:
-                    title = li.xpath("string(.)").strip()
-                if self.config.get("hot_xpath"):
-                    hot = li.xpath(self.config.get("hot_xpath"))[0]
-                else:
-                    hot = 0
-                entity_url = re.sub("[\n\s\t]", "", entity_url)
-                print(f"标题：{title}")
-                event = {
-                    "en": title,
-                    "enzh": self.translator.translate(title, src='auto', dest='zh-cn').text,
-                    "ehot": hot,
-                    "erank": index + 1,
-                    "eurl": entity_url,
-                }
-                event_list.append(event)
+                try:
+                    if self.config.get("url_xpath"):
+                        entity_url = url_join(url, li.xpath(self.config.get("url_xpath"))[0]).strip()
+                    else:
+                        entity_url = url_join(url, li.xpath("./@href")[0]).strip()
+                    if self.config.get("title_xpath"):
+                        title = self.get_string(self.config.get("title_xpath"), li).strip()
+                    else:
+                        title = li.xpath("string(.)").strip()
+                    if self.config.get("hot_xpath"):
+                        hot = li.xpath(self.config.get("hot_xpath"))[0]
+                    else:
+                        hot = 0
+                    entity_url = re.sub("[\n\s\t]", "", entity_url)
+
+                    event = {
+                        "en": title,
+                        "enzh": self.translator.translate(title, src='auto', dest='zh-cn').text,
+                        "ehot": hot,
+                        "erank": index + 1,
+                        "eurl": entity_url,
+                    }
+                    event_list.append(event)
+                except Exception as e:
+                    logger.error(f"循环内错误,部分数据异常：{e}")
             item = {
                 "pt": int(time.time()),
                 "lang": self.config.get("language"),
