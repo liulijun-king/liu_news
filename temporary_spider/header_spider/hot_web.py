@@ -64,16 +64,18 @@ class HotWeb(Base_spider):
                 res_html = response.content.decode(self.config.get("char"), "ignore")
             else:
                 res_html = response.content.decode("utf-8", "ignore")
+            print(res_html)
             html = etree.HTML(res_html)
             lis = html.xpath(self.config.get("lis_xpath"))
             event_list = []
+            print(len(lis))
             for index, li in enumerate(lis):
                 if self.config.get("url_xpath"):
                     entity_url = url_join(url, li.xpath(self.config.get("url_xpath"))[0]).strip()
                 else:
                     entity_url = url_join(url, li.xpath("./@href")[0]).strip()
                 if self.config.get("title_xpath"):
-                    title = self.get_string(self.config.get("title_xpath"),li).strip()
+                    title = self.get_string(self.config.get("title_xpath"), li).strip()
                 else:
                     title = li.xpath("string(.)").strip()
                 if self.config.get("hot_xpath"):
