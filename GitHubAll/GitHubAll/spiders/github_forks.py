@@ -64,7 +64,7 @@ class GithubForksSpider(scrapy.Spider):
                                          callback=self.parse,
                                          meta={
                                              "item": item_info
-                                             # "proxy": queue_empty()
+                                             , "proxy": queue_empty()
                                          })
 
     def parse(self, response, **kwargs):

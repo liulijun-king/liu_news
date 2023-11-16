@@ -11,7 +11,7 @@ queue = queue.Queue()
 
 def proxy_pool():
     # proxy_url = 'http://api.proxy.ipidea.io/getProxyIp?num=100&return_type=json&lb=6&sb=0&flow=1&regions=&protocol=http'
-    proxy_url = 'http://172.16.2.175:30022/getip?num=150&ip=&key=&source=zhima'
+    proxy_url = 'http://220.194.140.39:30022/getip?num=1&ip=&key=&source=zhima'
     proxy_con = requests.get(proxy_url).text
     proxy_json = json.loads(proxy_con)
     proxy_text = [(proxy["ip"] + ':' + str(proxy["port"])) for proxy in proxy_json["data"]]
@@ -19,15 +19,15 @@ def proxy_pool():
 
 
 def queue_empty():
-    while True:
-        if queue.empty():
-            proxy_list = proxy_pool()
-            for i in proxy_list:
-                queue.put(i)
-        pro = queue.get()
-        if pro:
-            if "http" not in pro:
-                pro = "http://" + pro
-            break
-    proxies = str(pro)
-    return proxies
+    # while True:
+    #     if queue.empty():
+    #         proxy_list = proxy_pool()
+    #         for i in proxy_list:
+    #             queue.put(i)
+    #     pro = queue.get()
+    #     if pro:
+    #         if "http" not in pro:
+    #             pro = "http://" + pro
+    #         break
+    # proxies = str(pro)
+    return "http://liulijun584268-zone-custom:9TL39WvUnboIdOI@9662f10ce723ec40.na.ipidea.online:2333"

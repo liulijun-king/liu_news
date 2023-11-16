@@ -37,10 +37,10 @@ class GithubUserinfoSpider(scrapy.Spider):
                     yield scrapy.Request(url=_,
                                          headers=self.headers,
                                          callback=self.parse
-                                         # ,
-                                         # meta={
-                                         #     "proxy": queue_empty()
-                                         # }
+                                         ,
+                                         meta={
+                                             "proxy": queue_empty()
+                                         }
                                          )
 
     def parse(self, response, **kwargs):
