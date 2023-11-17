@@ -16,19 +16,19 @@ if [ x"${optype}" = x ] ; then
     optype=start
 fi
 
-function start()
+start()
 {
     # 进程数量
     prog_num=`ps -ef | grep $PROGNAME | grep -v grep | wc -l`
     if [ $prog_num -eq 0 ] ; then
         echo "start $PROGNAME"
-        nohup /usr/local/bin/python3 -u $PROGNAME >> $log_file 2>&1 &
+        nohup python3 -u $PROGNAME >> $log_file 2>&1 &
     else
         echo "$PROGNAME is started"
     fi
 }
 
-function stop()
+stop()
 {
     # 进程数量
     prog_num=`ps -ef | grep $PROGNAME | grep -v grep | wc -l`
