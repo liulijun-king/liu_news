@@ -16,7 +16,7 @@ if [ x"${optype}" = x ] ; then
     optype=start
 fi
 
-function start()
+start()
 {
     # 进程数量
     prog_num=`ps -ef | grep $PROGNAME | grep -v grep | wc -l`
@@ -30,7 +30,7 @@ function start()
 
 
 
-function stop()
+stop()
 {
     # 进程数量
     prog_num=`ps -ef | grep $PROGNAME | grep -v grep | wc -l`
@@ -51,7 +51,7 @@ function stop()
 
 
 
-function keep_run()
+keep_run()
 {
     # 进程数量
     prog_num=`ps -ef | grep $PROGNAME | grep -v grep | wc -l`
