@@ -10,7 +10,7 @@ from loguru import logger
 from kafka import KafkaProducer
 
 kafka_pro = KafkaProducer(
-    bootstrap_servers=['8.130.131.161:9092', '8.130.94.243:9092', '8.130.37.191:9092'])
+    bootstrap_servers=['172.24.73.198:9092'])
 
 
 def check_item(item):
