@@ -34,10 +34,10 @@ class GithubUserinfoSpider(scrapy.Spider):
 
             for _ in user_list:
                 if _:
+                    logger.info(f"正在解析用户信息 | {_}")
                     yield scrapy.Request(url=_,
                                          headers=self.headers,
-                                         callback=self.parse
-                                         ,
+                                         callback=self.parse,
                                          meta={
                                              "proxy": queue_empty()
                                          }

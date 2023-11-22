@@ -40,7 +40,6 @@ class GithubMainSpider(scrapy.Spider):
                 if _:
                     try:
                         url = f"https://api.github.com/repositories/{_}"
-
                         yield scrapy.Request(url=url,
                                              headers=self.headers,
                                              callback=self.json_parse
