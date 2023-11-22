@@ -7,6 +7,7 @@ import sys
 sys.path.append('../')
 from GitHubAll.settings import id_key
 from rediscluster import RedisCluster
+from loguru import logger
 
 startup_nodes = [
     {"host": "47.97.216.52", "port": 6379},
@@ -37,10 +38,10 @@ def add_id():
                     with open("max_id.txt", "w", encoding="utf-8") as f:
                         f.write(str(_))
                     pipeline.execute()
-                    print('一万个id添加完成！')
+                    logger.info('一万个id添加完成！')
                     count = 0
     except(Exception,) as e:
-        print(e)
+        logger.error(f"添加id失败：{e}")
 
 
 add_id()
