@@ -9,4 +9,4 @@ else
 fi
 
 # 进入 Docker 容器并执行 main.py 文件
-docker exec -it dazzling_bohr sh /data/start_all.sh
+docker exec -it dazzling_bohr bash sh /data/start_all.sh
