@@ -22,5 +22,5 @@ redis_conn = RedisCluster(
     decode_responses=True, socket_connect_timeout=30, password='gew29YAyi'
 )
 
-print(redis_conn.llen('github_all:item_info_handle'))
+print(redis_conn.llen('gb_all:day_forks'))
 print(redis_conn.llen('gb_all:item_info_task'))
