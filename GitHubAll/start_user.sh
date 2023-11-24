@@ -22,7 +22,7 @@ start()
     prog_num=`ps -ef | grep $PROGNAME | grep -v grep | wc -l`
     if [ $prog_num -le 2 ] ; then
         echo "start $PROGNAME"
-        nohup python3 -u $PROGNAME >> $log_file 2>&1 &
+        nohup /usr/local/bin/python3 -u $PROGNAME >> $log_file 2>&1 &
     else
         echo "$PROGNAME is started"
     fi
