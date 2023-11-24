@@ -15,8 +15,8 @@ if __name__ == '__main__':
     #        shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333
     # http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333
     proxies = {
-        'http': 'http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333',
-        'https': 'http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333'
+        'http': "http://f2199815664-region-SG-period-0:k0sl96zx@as.r618.kdlfps.com:18866/",
+        'https': "http://f2199815664-region-SG-period-0:k0sl96zx@as.r618.kdlfps.com:18866/"
     }
     mp = HeadSpider(is_proxies=proxies, hw_db=hw_obs, kafka_pro=producer)
     mp.id_split()

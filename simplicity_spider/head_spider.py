@@ -16,8 +16,8 @@ if __name__ == '__main__':
         bootstrap_servers=['8.130.131.161:9092', '8.130.94.243:9092', '8.130.37.191:9092'])
     hw_obs = HwObs()
     is_proxies = {
-        'http': 'http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333',
-        'https': 'http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333'
+        'http': "http://f2199815664-region-SG-period-0:k0sl96zx@as.r618.kdlfps.com:18866/",
+        'https': "http://f2199815664-region-SG-period-0:k0sl96zx@as.r618.kdlfps.com:18866/"
     }
     Fr(hw_db=hw_obs, kafka_pro=producer, is_proxies=is_proxies).id_split()
     Td(hw_db=hw_obs, kafka_pro=producer, is_proxies=is_proxies).id_split()
