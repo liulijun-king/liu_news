@@ -30,4 +30,4 @@ def queue_empty():
     #             pro = "http://" + pro
     #         break
     # proxies = str(pro)
-    return "http://f2199815664-region-SG-period-0:k0sl96zx@as.r618.kdlfps.com:18866/"
+    return "http://f2199815664-region-US-period-0:k0sl96zx@us.r618.kdlfps.com:18866/"
