@@ -182,7 +182,8 @@ class HeadSpider(Base_spider):
                     if re.search("(data:image/gif|\.gif)", relay_img[0]) or not re.search("^http", relay_img[0]):
                         continue
                     images.append(url_join(entity_url, relay_img[0]))
-            img_list = self.sava_img(images)
+            # img_list = self.sava_img(images)
+            img_list = ""
             video = self.video_del(video_css, tree, entity_url)
             accessory = self.get_files(accessory_css, tree, entity_url, "pdf$")
             item = {
