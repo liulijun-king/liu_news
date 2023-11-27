@@ -24,7 +24,7 @@ from tools.mini_down import MiniDown
 
 
 class HeadSpider(Base_spider):
-    def __init__(self, is_proxies=None, hw_db=None, kafka_pro=None):
+    def __init__(self, is_proxies=None, hw_db=None, kafka_pro=None, redis_conn=None):
         super(HeadSpider, self).__init__(is_proxies=is_proxies)
         self.headers = {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -42,6 +42,7 @@ class HeadSpider(Base_spider):
         self.config = None
         self.hw_db = hw_db
         self.kafka_pro = kafka_pro
+        self.redis_conn = redis_conn
 
     def get_cookie(self, url):
         if "vot.org" in url:
@@ -112,7 +113,10 @@ class HeadSpider(Base_spider):
                 lis = re.findall(self.config.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
             for li in lis:
                 entity_url = url_join(url, li).strip()
-                self.entity_spider(entity_url)
+                if not self.redis_conn.sismember("key_news:pl", entity_url):
+                    self.entity_spider(entity_url)
+                else:
+                    logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{traceback.format_exc()}")
 
@@ -214,6 +218,7 @@ class HeadSpider(Base_spider):
             }
             # print(json.dumps(item, ensure_ascii=False, indent=4))
             self.send_data("topic_c1_original_keynewswebsites", item)
+            self.redis_conn.sadd("key_news:pl", item['source_url'])
         except Exception:
             logger.error(f"实体页采集出错！{traceback.format_exc()}")
 
