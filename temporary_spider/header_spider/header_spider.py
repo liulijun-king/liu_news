@@ -54,7 +54,7 @@ class HeadSpider(Base_spider):
         data_dict = self.module
         for key, value in data_dict.items():
             self.config = value
-            if "万维读者网" in value.get("website_name"):
+            if "英国《经济学家" in value.get("website_name"):
                 self.history_spider(key)
 
     def id_split_thread(self):
