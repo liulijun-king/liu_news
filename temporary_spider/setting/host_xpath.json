@@ -706,7 +706,29 @@
     "video_css": "//div[@id='newsContent']//video",
     "accessory_css": "//div[@id='newsContent']//file"
   },
+  "tech.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
   "finance.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "sports.creaders.net": {
     "title_xpath": "//h1[@class='STYLE3']",
     "author_xpath": "//span[@class='author']",
     "pubtime_css": "//div[@class='infometa STYLE4']",
