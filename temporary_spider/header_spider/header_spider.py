@@ -87,9 +87,10 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(self.config.get("lis_xpath"))
             else:
                 lis = re.findall(self.config.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            for li in lis:
-                entity_url = url_join(url, li).strip()
-                self.entity_spider(entity_url)
+            with ThreadPoolExecutor(max_workers=15) as pool:
+                for li in lis:
+                    entity_url = url_join(url, li).strip()
+                    pool.submit(self.entity_spider, entity_url)
         except Exception as e:
             logger.error(f"列表页请求失败！{e}")
 
@@ -111,12 +112,13 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(self.config.get("lis_xpath"))
             else:
                 lis = re.findall(self.config.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            for li in lis:
-                entity_url = url_join(url, li).strip()
-                if not self.redis_conn.sismember("key_news:pl", entity_url):
-                    self.entity_spider(entity_url)
-                else:
-                    logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
+            with ThreadPoolExecutor(max_workers=15) as pool:
+                for li in lis:
+                    entity_url = url_join(url, li).strip()
+                    if not self.redis_conn.sismember("key_news:pl", entity_url):
+                        pool.submit(self.entity_spider, entity_url)
+                    else:
+                        logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{traceback.format_exc()}")
 
