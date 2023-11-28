@@ -305,7 +305,7 @@
     "pubtime_css": "//time[@class='css-j5ehde exy50qi0']/@datetime",
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='css-er00if e1whazj12']/p",
+    "html_x": "//div[@class='css-er00if e1whazj12']/p|//section[contains(@class,'css-siot')]/div[contains(@class,'css-')]/p",
     "img_css": "//section[@class='css-1ugvd2u e18wk22u0']//img|//div[@class='css-er00if e1whazj12']//img",
     "video_css": "//div[@class='css-er00if e1whazj12']/p//video",
     "accessory_css": "//div[@class='css-er00if e1whazj12']/p//file"
