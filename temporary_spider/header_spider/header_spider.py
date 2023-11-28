@@ -125,7 +125,6 @@ class HeadSpider(Base_spider):
 
     def entity_spider(self, entity_url):
         try:
-            logger.info(f"实体页链接：{entity_url}")
             url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
             url_host = url_host.replace("www.", "")
             entity_rule = self.host_rule.get(url_host)
@@ -149,6 +148,7 @@ class HeadSpider(Base_spider):
             else:
                 other_req = False
             responses = req_get(entity_url, headers=self.headers, proxies=self.is_proxies, other_req=other_req)
+            logger.info(f"实体页链接：{entity_url},响应码：{responses.status_code}")
             if self.config.get("char"):
                 tree = etree.HTML(responses.content.decode(self.config.get("char"), 'ignore'))
             else:
