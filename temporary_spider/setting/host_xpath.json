@@ -405,9 +405,9 @@
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
     "html_x": "//section[contains(@class,'container')]/p",
-    "img_css": "//section[contains(@class,'container')//img",
-    "video_css": "//div[@class='Timestamp_txhkndn']/time//video",
-    "accessory_css": "//div[@class='Timestamp_txhkndn']/time//file"
+    "img_css": "//section[contains(@class,'container')]//img",
+    "video_css": "//section[contains(@class,'container')]//video",
+    "accessory_css": "//section[contains(@class,'container')]//file"
   },
   "ntdtv.com": {
     "title_xpath": "//div[@class='article_title']/h1",
