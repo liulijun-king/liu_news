@@ -54,8 +54,8 @@ class HeadSpider(Base_spider):
         data_dict = self.module
         for key, value in data_dict.items():
             self.config = value
-            if "日本经济新闻" in value.get("website_name"):
-                self.history_spider(key)
+            # if "日本经济新闻" in value.get("website_name"):
+            self.history_spider(key)
 
     def id_split_thread(self):
         data_dict = self.config.get("keywords")
