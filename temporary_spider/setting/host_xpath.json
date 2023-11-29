@@ -355,13 +355,13 @@
     "accessory_css": "//div[@class='content-inner ']/p//file"
   },
   "medium.com": {
-    "title_xpath": "//h1[@id='c44c']",
-    "author_xpath": "//p[@class='be b hk hl bj']/a",
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
     "pubtime_css": "//meta[@property='article:published_time']/@content",
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='ch bg dx dy dz ea']/p",
-    "img_css": "//img[@class='bg la lb c']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
     "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
     "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
   },
