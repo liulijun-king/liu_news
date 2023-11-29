@@ -399,13 +399,13 @@
     "accessory_css": "//div[@class='raw-style']//p//file"
   },
   "nikkei.com": {
-    "title_xpath": "//h1[@class='title_tp0qjrp']",
+    "title_xpath": "//h1[contains(@class,'title')]",
     "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='Timestamp_txhkndn']/time",
+    "pubtime_css": "//div[contains(@class,'Timestamp')]/time|//div[contains(@class,'timeStamp')]/time",
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='Timestamp_txhkndn']/time",
-    "img_css": "//section[@class='container_c1suc6un']//img",
+    "html_x": "//section[contains(@class,'container')]/p",
+    "img_css": "//section[contains(@class,'container')//img",
     "video_css": "//div[@class='Timestamp_txhkndn']/time//video",
     "accessory_css": "//div[@class='Timestamp_txhkndn']/time//file"
   },
