@@ -3606,10 +3606,10 @@
     "https://globalnewstv.com.tw": {
       "base_url": "https://globalnewstv.com.tw",
       "host": "globalnewstv.com",
-      "module_name": "globalnewstv.com.tw-首页",
+      "module_name": "寰宇新聞網-首页",
       "module_url": "https://globalnewstv.com.tw",
-      "source": "globalnewstv.com.tw",
-      "website_name": "globalnewstv.com.tw",
+      "source": "寰宇新聞網",
+      "website_name": "寰宇新聞網",
       "language": 1,
       "language_str": "zh",
       "article_type": "",
