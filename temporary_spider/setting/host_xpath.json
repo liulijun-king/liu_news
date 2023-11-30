@@ -580,7 +580,7 @@
     "pubtime_css": "//span[@class='date']/time",
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='wsw']/p",
+    "html_x": "//div[@id='article-content']",
     "img_css": "//div[@class='wsw']//img|//div[@class='img-wrap']//img",
     "video_css": "//div[@class='wsw']/P//video",
     "accessory_css": "//div[@class='wsw']/P//file"
