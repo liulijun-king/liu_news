@@ -43,6 +43,7 @@ class HeadSpider(Base_spider):
         self.hw_db = hw_db
         self.kafka_pro = kafka_pro
         self.redis_conn = redis_conn
+        self.source_result = {}
 
     def get_cookie(self, url):
         if "vot.org" in url:
@@ -54,8 +55,8 @@ class HeadSpider(Base_spider):
         data_dict = self.module
         for key, value in data_dict.items():
             self.config = value
-            if "南华早报" in value.get("website_name"):
-                self.history_spider(key)
+            # if "南华早报" in value.get("website_name"):
+            self.history_spider(key)
 
     def id_split_thread(self):
         data_dict = self.config.get("keywords")
@@ -119,6 +120,12 @@ class HeadSpider(Base_spider):
                     if not self.redis_conn.sismember("key_news:pl", entity_url):
                         pool.submit(self.entity_spider, entity_url)
                     else:
+                        url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
+                        url_host = url_host.replace("www.", "")
+                        if self.source_result.get(url_host):
+                            self.source_result[url_host] += 1
+                        else:
+                            self.source_result[url_host] = 1
                         logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{traceback.format_exc()}")
@@ -223,6 +230,10 @@ class HeadSpider(Base_spider):
             # print(json.dumps(item, ensure_ascii=False, indent=4))
             self.send_data("topic_c1_original_keynewswebsites", item)
             self.redis_conn.sadd("key_news:pl", item['source_url'])
+            if self.source_result.get(host.replace("www.", '')):
+                self.source_result[host.replace("www.", '')] += 1
+            else:
+                self.source_result[host.replace("www.", '')] = 1
         except Exception:
             logger.error(f"实体页采集出错！{traceback.format_exc()}")
 
@@ -264,3 +275,4 @@ if __name__ == '__main__':
     }
     mp = HeadSpider(is_proxies=proxies, hw_db=hw_obs, kafka_pro=producer)
     mp.id_split()
+

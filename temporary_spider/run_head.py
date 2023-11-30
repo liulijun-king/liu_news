@@ -4,10 +4,13 @@
 # @Site    : 
 # @File    : run_head.py
 # @Software: PyCharm
+import time
+
 from kafka import KafkaProducer
-from tools.mini_down import MiniDown
-from header_spider.header_spider import HeadSpider
 from rediscluster import RedisCluster
+
+from header_spider.header_spider import HeadSpider
+from tools.mini_down import MiniDown
 
 if __name__ == '__main__':
     startup_nodes = [
@@ -32,3 +35,5 @@ if __name__ == '__main__':
     }
     mp = HeadSpider(is_proxies=proxies, hw_db=hw_obs, kafka_pro=producer, redis_conn=redis_conn)
     mp.id_split()
+    with open(f"统计_{int(time.time())}.txt", "w", encoding="utf-8") as f:
+        f.write(json.dumps(mp.source_result, ensure_ascii=False, indent=4))
