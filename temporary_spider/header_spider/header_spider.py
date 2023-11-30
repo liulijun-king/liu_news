@@ -132,6 +132,7 @@ class HeadSpider(Base_spider):
 
     def entity_spider(self, entity_url):
         try:
+            logger.info(f"实体页链接：{entity_url}")
             url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
             url_host = url_host.replace("www.", "")
             entity_rule = self.host_rule.get(url_host)
