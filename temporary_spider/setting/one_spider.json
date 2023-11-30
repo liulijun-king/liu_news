@@ -10026,7 +10026,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//div[@id='owl-demo']//a/@href|//div[@class='top-hot-list']//ul//li//a/@href|//div[@class='row']//div[@class='newsimg-area-item-2']/@href|//div[@class='right-writer-list']//div[@class='title']//a/@href|//div[@class='top-hot-list2']//ul//li//a/@href|//div[@class='row']//a/@href|//div[@class='right-hot-list']//a/@href|//div[@class='owl-item active']//a/@href",
+      "lis_xpath": "//a[@class='gt']/@href",
       "spider_module": "html"
     },
     "https://www.setn.com/Catalog.aspx?PageGroupID=6": {
@@ -10043,7 +10043,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//div[@class='news-list']//a/@href|//div[@class='newsimg-area-item-2']//a/@href|//div[@class='top-hot-list']//ul//a/@href|//div[@class='owl-stage']//a/@href",
+      "lis_xpath": "//a[@class='gt']/@href",
       "spider_module": "html"
     },
     "https://www.setn.com/Catalog.aspx?PageGroupID=5": {
@@ -10060,7 +10060,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//div[@class='top-hot-list']//a/@href|//div[@class='newsimg-area-item-2']//a/@href|//div[@class='title']//a/@href|//div[@class='top-hot-list2']//ul//li//a/@href|//div[@class='newsimg-area-item']//a/@href|//div[@class='news-list']//ul//li//a/@href",
+      "lis_xpath": "//a[@class='gt']/@href",
       "spider_module": "html"
     },
     "https://www.setn.com/Catalog.aspx?PageGroupID=2": {
@@ -10077,7 +10077,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//div[@class='top-hot-list']//a/@href|//div[@class='owl-item']//a/@href|//div[@class='newsimg-area-item-2']//a/@href|//div[@class='title']//a/@href|//div[@class='top-hot-list2']//a/@href|//div[@class='right-hot-info']//a/@href|//div[@class='news-list']//ul//a/@href|//div[@class='newsimg-area-item']//a/@href",
+      "lis_xpath": "//a[@class='gt']/@href",
       "spider_module": "html"
     },
     "https://money.udn.com/rank/newest/1001/0/1": {
