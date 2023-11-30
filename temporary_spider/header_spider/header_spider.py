@@ -55,7 +55,7 @@ class HeadSpider(Base_spider):
         data_dict = self.module
         for key, value in data_dict.items():
             self.config = value
-            if "台湾联合新闻网" in value.get("website_name"):
+            if "世维会网英文版" in value.get("website_name"):
                 self.history_spider(key)
 
     def id_split_thread(self):
@@ -89,7 +89,7 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(self.config.get("lis_xpath"))
             else:
                 lis = re.findall(self.config.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            with ThreadPoolExecutor(max_workers=15) as pool:
+            with ThreadPoolExecutor(max_workers=50) as pool:
                 for li in lis:
                     entity_url = url_join(url, li).strip()
                     pool.submit(self.entity_spider, entity_url)
@@ -114,7 +114,7 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(self.config.get("lis_xpath"))
             else:
                 lis = re.findall(self.config.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            with ThreadPoolExecutor(max_workers=15) as pool:
+            with ThreadPoolExecutor(max_workers=50) as pool:
                 for li in lis:
                     entity_url = url_join(url, li).strip()
                     if not self.redis_conn.sismember("key_news:pl", entity_url):
