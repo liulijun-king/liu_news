@@ -29,7 +29,7 @@ class GithubMainSpider(scrapy.Spider):
 
     def start_requests(self):
         while True:
-            if redis_conn.llen(id_key) <= 100 or redis_conn.llen(day_crawl_key) > 500000:
+            if redis_conn.llen(id_key) <= 100 or redis_conn.llen(day_crawl_key) > 200000:
                 break
             pipeline = redis_conn.pipeline()
             for _ in range(10000):
