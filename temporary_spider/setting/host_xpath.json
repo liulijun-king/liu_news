@@ -476,12 +476,12 @@
     "accessory_css": "//div[@class='t-content__body u-clearfix']//file"
   },
   "scmp.com": {
-    "title_xpath": "//span[@class='css-0 eun57402']",
+    "title_xpath": "//h2[contains(@class,'e1oct4f95')]",
     "author_xpath": "//a[@class='css-1yipg8e e1yv8vq90']",
     "pubtime_css": "//meta[@property='article:published_time']/@content",
     "abstract_xpath": "//li[@class='css-1mniedq emcar6e10']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='css-ps3lmr eg5341w14']",
+    "html_x": "//section[contains(@class,'css-')]/div[contains(@class,'css-')]",
     "img_css": "//img[@class='eope0cl2 css-fr6qis em4672x0']|//div[@class='css-ps3lmr eg5341w14']//img",
     "video_css": "//div[@class='css-ps3lmr eg5341w14']//video",
     "accessory_css": "//div[@class='css-ps3lmr eg5341w14']//file"
