@@ -575,12 +575,12 @@
     "accessory_css": "//div[@class='content-inner']//file"
   },
   "voanews.com": {
-    "title_xpath": "//h1[@class='title pg-title']",
+    "title_xpath": "//h1[@class='title pg-title']|//div[@class='hdr-container']/div[@class='row']/div/h1",
     "author_xpath": "//a[@class='links__item-link']",
     "pubtime_css": "//span[@class='date']/time",
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@id='article-content']",
+    "html_x": "//div[@id='article-content']|//div[@class='intro m-t-md']",
     "img_css": "//div[@class='wsw']//img|//div[@class='img-wrap']//img",
     "video_css": "//div[@class='wsw']/P//video",
     "accessory_css": "//div[@class='wsw']/P//file"
