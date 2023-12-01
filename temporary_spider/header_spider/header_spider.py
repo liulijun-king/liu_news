@@ -39,7 +39,6 @@ class HeadSpider(Base_spider):
         self.module = json.load(open(f'{self.base_root}/setting/one_spider.json', 'r', encoding="utf-8")).get(
             self.__class__.__name__)
         self.host_rule = json.load(open(f'{self.base_root}/setting/host_xpath.json', 'r', encoding="utf-8"))
-        self.config = None
         self.hw_db = hw_db
         self.kafka_pro = kafka_pro
         self.redis_conn = redis_conn
@@ -54,83 +53,93 @@ class HeadSpider(Base_spider):
     def id_split(self):
         data_dict = self.module
         for key, value in data_dict.items():
-            self.config = value
             # if "美国《华盛顿邮报" in value.get("website_name"):
-            self.history_spider(key)
+            self.history_spider(key, value)
 
     def id_split_thread(self):
-        data_dict = self.config.get("keywords")
-        with ThreadPoolExecutor(max_workers=15) as pool:
-            for _ in data_dict:
-                pool.submit(self.history_spider, _)
+        data_dict = self.module
+        with ThreadPoolExecutor(max_workers=50) as pool:
+            for key, value in data_dict.items():
+                pool.submit(self.history_spider, url=key, items=value)
 
-    def history_spider(self, url):
-        max_page = self.config.get("max_page")
-        start_page = self.config.get("start_page")
-        page_size = self.config.get("page_size")
+    def history_spider(self, url, items):
+        max_page = items.get("max_page")
+        start_page = items.get("start_page")
+        page_size = items.get("page_size")
         for _ in range(start_page, max_page):
-            if self.config.get("spider_module") == 'date':
-                self.date_spider(_ * page_size, url)
+            if items.get("spider_module") == 'date':
+                self.date_spider(_ * page_size, url, items)
             else:
-                self.list_spider(_ * page_size, url)
+                self.list_spider(_ * page_size, url, items)
             break
 
-    def date_spider(self, page, url):
+    def date_spider(self, page, url, items):
         try:
             page = get_date(page)
             url = url.format(str(page))
             logger.info(f"当前采集链接：{url}，页码：{page}")
             response = req_get(url, headers=self.headers, proxies=self.is_proxies)
-            if self.config.get("char"):
-                html = etree.HTML(response.content.decode(self.config.get("char"), "ignore"))
+            if items.get("char"):
+                html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
             else:
                 html = etree.HTML(response.content.decode())
-            if self.config.get("lis_xpath").endswith("href"):
-                lis = html.xpath(self.config.get("lis_xpath"))
+            if items.get("lis_xpath").endswith("href"):
+                lis = html.xpath(items.get("lis_xpath"))
             else:
-                lis = re.findall(self.config.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            with ThreadPoolExecutor(max_workers=50) as pool:
-                for li in lis:
-                    entity_url = url_join(url, li).strip()
-                    pool.submit(self.entity_spider, entity_url)
+                lis = re.findall(items.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
+            # with ThreadPoolExecutor(max_workers=50) as pool:
+            for li in lis:
+                entity_url = url_join(url, li).strip()
+                if not self.redis_conn.sismember("key_news:pl", entity_url):
+                    self.entity_spider(entity_url, items)
+                    # pool.submit(self.entity_spider, entity_url=entity_url, items=items)
+                else:
+                    url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
+                    url_host = url_host.replace("www.", "")
+                    if self.source_result.get(url_host):
+                        self.source_result[url_host] += 1
+                    else:
+                        self.source_result[url_host] = 1
+                    logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{e}")
 
-    def list_spider(self, page, url):
+    def list_spider(self, page, url, items):
         try:
             url = url.format(str(page))
             logger.info(f"当前采集链接：{url}，页码：{page}")
-            if self.config.get("other_req"):
-                other_req = self.config.get("other_req")
+            if items.get("other_req"):
+                other_req = items.get("other_req")
             else:
                 other_req = False
             response = req_get(url, headers=self.headers, proxies=self.is_proxies, other_req=other_req, verify=True)
-            logger.info(f"测试站点:{self.config['module_name']},响应状态：{response.status_code}")
-            if self.config.get("char"):
-                html = etree.HTML(response.content.decode(self.config.get("char"), "ignore"))
+            logger.info(f"测试站点:{items['module_name']},响应状态：{response.status_code}")
+            if items.get("char"):
+                html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
             else:
                 html = etree.HTML(response.content.decode())
-            if self.config.get("lis_xpath").endswith("href"):
-                lis = html.xpath(self.config.get("lis_xpath"))
+            if items.get("lis_xpath").endswith("href"):
+                lis = html.xpath(items.get("lis_xpath"))
             else:
-                lis = re.findall(self.config.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            with ThreadPoolExecutor(max_workers=50) as pool:
-                for li in lis:
-                    entity_url = url_join(url, li).strip()
-                    if not self.redis_conn.sismember("key_news:pl", entity_url):
-                        pool.submit(self.entity_spider, entity_url)
+                lis = re.findall(items.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
+            # with ThreadPoolExecutor(max_workers=50) as pool:
+            for li in lis:
+                entity_url = url_join(url, li).strip()
+                if not self.redis_conn.sismember("key_news:pl", entity_url):
+                    self.entity_spider(entity_url, items)
+                    # pool.submit(self.entity_spider, entity_url=entity_url, items=items)
+                else:
+                    url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
+                    url_host = url_host.replace("www.", "")
+                    if self.source_result.get(url_host):
+                        self.source_result[url_host] += 1
                     else:
-                        # url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
-                        # url_host = url_host.replace("www.", "")
-                        # if self.source_result.get(url_host):
-                        #     self.source_result[url_host] += 1
-                        # else:
-                        #     self.source_result[url_host] = 1
-                        logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
+                        self.source_result[url_host] = 1
+                    logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{traceback.format_exc()}")
 
-    def entity_spider(self, entity_url):
+    def entity_spider(self, entity_url, items):
         try:
             logger.info(f"实体页链接：{entity_url}")
             url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
@@ -147,18 +156,18 @@ class HeadSpider(Base_spider):
             video_css = entity_rule['video_css']
             accessory_css = entity_rule['accessory_css']
             img_child_css = "./@src|./@data-src"
-            host = self.config['host']
+            host = items['host']
             hostname = socket.gethostname()
             ip = socket.gethostbyname(hostname)
-            module_id = get_md5(self.config.get("module_url"))
-            if self.config.get("other_req"):
-                other_req = self.config.get("other_req")
+            module_id = get_md5(items.get("module_url"))
+            if items.get("other_req"):
+                other_req = items.get("other_req")
             else:
                 other_req = False
             responses = req_get(entity_url, headers=self.headers, proxies=self.is_proxies, other_req=other_req)
             logger.info(f"实体页链接：{entity_url},响应码：{responses.status_code}")
-            if self.config.get("char"):
-                tree = etree.HTML(responses.content.decode(self.config.get("char"), 'ignore'))
+            if items.get("char"):
+                tree = etree.HTML(responses.content.decode(items.get("char"), 'ignore'))
             else:
                 tree = etree.HTML(responses.content.decode("utf-8", 'ignore'))
             title = tree.xpath(title_xpath)[0].xpath('string(.)') if tree.xpath(title_xpath) else tree.xpath("//title")[
@@ -210,17 +219,17 @@ class HeadSpider(Base_spider):
                 'pictures': "#".join(images),  # 图片链接
                 'videos': "#".join(video),  # 视频链接
                 'accessory': "#".join(accessory),  # 附件链接
-                'module_name': self.config['module_name'],
-                'module_url': self.config['module_url'],
+                'module_name': items['module_name'],
+                'module_url': items['module_url'],
                 'ref_url': entity_url,
                 'source_url': entity_url,
                 'url_md5': get_md5(entity_url),
                 'host': host,
                 'sub_host': host.replace("www.", ''),
-                'website_name': self.config['website_name'],  # 站点名称
+                'website_name': items['website_name'],  # 站点名称
                 'article_type': 0,
-                'language': self.config['language'],  # 语种
-                'language_str': self.config['language_str'],
+                'language': items['language'],  # 语种
+                'language_str': items['language_str'],
                 'crawler_time': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),  # 采集时间
                 'insert_time': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
                 'update_time': time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
@@ -231,10 +240,10 @@ class HeadSpider(Base_spider):
             # print(json.dumps(item, ensure_ascii=False, indent=4))
             self.send_data("topic_c1_original_keynewswebsites", item)
             self.redis_conn.sadd("key_news:pl", item['source_url'])
-            # if self.source_result.get(host.replace("www.", '')):
-            #     self.source_result[host.replace("www.", '')] += 1
-            # else:
-            #     self.source_result[host.replace("www.", '')] = 1
+            if self.source_result.get(host.replace("www.", '')):
+                self.source_result[host.replace("www.", '')] += 1
+            else:
+                self.source_result[host.replace("www.", '')] = 1
         except Exception:
             logger.error(f"实体页采集出错！{traceback.format_exc()}")
 
@@ -276,4 +285,3 @@ if __name__ == '__main__':
     }
     mp = HeadSpider(is_proxies=proxies, hw_db=hw_obs, kafka_pro=producer)
     mp.id_split()
-
