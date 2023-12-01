@@ -30,4 +30,4 @@ def queue_empty():
     #             pro = "http://" + pro
     #         break
     # proxies = str(pro)
-    return "http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333"
+    return "http://shengmingxing_zxcj-zone-custom:wzcj_2023@679e234e86e0ed04.na.ipidea.online:2333"
