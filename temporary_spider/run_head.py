@@ -34,6 +34,7 @@ if __name__ == '__main__':
         'https': "http://shengmingxing_zxcj-zone-custom:wzcj_2023@679e234e86e0ed04.na.ipidea.online:2333"
     }
     mp = HeadSpider(is_proxies=proxies, hw_db=hw_obs, kafka_pro=producer, redis_conn=redis_conn)
-    mp.id_split()
+    # mp.id_split()
+    mp.id_split_thread()
     with open(f"统计_{int(time.time())}.txt", "w", encoding="utf-8") as f:
         f.write(json.dumps(mp.source_result, ensure_ascii=False, indent=4))
