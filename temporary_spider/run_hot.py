@@ -18,3 +18,5 @@ if __name__ == '__main__':
     }
     mp = HotWeb(is_proxies=proxies, kafka_pro=producer)
     mp.id_split()
+
+# find /tmp -type f -size +1G -exec du -h {} +
