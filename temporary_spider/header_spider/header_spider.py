@@ -54,8 +54,7 @@ class HeadSpider(Base_spider):
     def id_split(self):
         data_dict = self.module
         for key, value in data_dict.items():
-            if re.search("(北京之春|美国倍可亲|英国BBC|博谈网)",value.get("website_name")):
-                self.history_spider(key, value)
+            self.history_spider(key, value)
 
     def id_split_thread(self):
         data_dict = self.module
@@ -84,7 +83,6 @@ class HeadSpider(Base_spider):
                 self.pro_result[str(response.status_code)] += 1
             else:
                 self.pro_result[str(response.status_code)] = 1
-
             if items.get("char"):
                 html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
             else:
@@ -93,19 +91,18 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(items.get("lis_xpath"))
             else:
                 lis = re.findall(items.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            # with ThreadPoolExecutor(max_workers=50) as pool:
             for li in lis:
                 entity_url = url_join(url, li).strip()
-                # if not self.redis_conn.sismember("key_news:pl", entity_url):
-                self.entity_spider(entity_url, items)
-                # else:
-                #     url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
-                #     url_host = url_host.replace("www.", "")
-                #     if self.source_result.get(url_host):
-                #         self.source_result[url_host] += 1
-                #     else:
-                #         self.source_result[url_host] = 1
-                #     logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
+                if not self.redis_conn.sismember("key_news:pl", entity_url):
+                    self.entity_spider(entity_url, items)
+                else:
+                    url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
+                    url_host = url_host.replace("www.", "")
+                    if self.source_result.get(url_host):
+                        self.source_result[url_host] += 1
+                    else:
+                        self.source_result[url_host] = 1
+                    logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{e}")
 
@@ -131,20 +128,18 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(items.get("lis_xpath"))
             else:
                 lis = re.findall(items.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
-            # with ThreadPoolExecutor(max_workers=50) as pool:
             for li in lis:
                 entity_url = url_join(url, li).strip()
-                # if not self.redis_conn.sismember("key_news:pl", entity_url):
-                self.entity_spider(entity_url, items)
-                # pool.submit(self.entity_spider, entity_url=entity_url, items=items)
-                # else:
-                #     url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
-                #     url_host = url_host.replace("www.", "")
-                #     if self.source_result.get(url_host):
-                #         self.source_result[url_host] += 1
-                #     else:
-                #         self.source_result[url_host] = 1
-                #     logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
+                if not self.redis_conn.sismember("key_news:pl", entity_url):
+                    self.entity_spider(entity_url, items)
+                else:
+                    url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
+                    url_host = url_host.replace("www.", "")
+                    if self.source_result.get(url_host):
+                        self.source_result[url_host] += 1
+                    else:
+                        self.source_result[url_host] = 1
+                    logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{traceback.format_exc()}")
 
