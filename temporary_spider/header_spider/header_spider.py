@@ -43,6 +43,7 @@ class HeadSpider(Base_spider):
         self.kafka_pro = kafka_pro
         self.redis_conn = redis_conn
         self.source_result = {}
+        self.pro_result = {}
 
     def get_cookie(self, url):
         if "vot.org" in url:
@@ -79,6 +80,11 @@ class HeadSpider(Base_spider):
             url = url.format(str(page))
             logger.info(f"当前采集链接：{url}，页码：{page}")
             response = req_get(url, headers=self.headers, proxies=self.is_proxies)
+            if str(response.status_code) in self.pro_result:
+                self.pro_result[str(response.status_code)] += 1
+            else:
+                self.pro_result[str(response.status_code)] = 1
+
             if items.get("char"):
                 html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
             else:
@@ -112,6 +118,10 @@ class HeadSpider(Base_spider):
             else:
                 other_req = False
             response = req_get(url, headers=self.headers, proxies=self.is_proxies, other_req=other_req, verify=True)
+            if str(response.status_code) in self.pro_result:
+                self.pro_result[str(response.status_code)] += 1
+            else:
+                self.pro_result[str(response.status_code)] = 1
             logger.info(f"测试站点:{items['module_name']},响应状态：{response.status_code}")
             if items.get("char"):
                 html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
@@ -126,7 +136,7 @@ class HeadSpider(Base_spider):
                 entity_url = url_join(url, li).strip()
                 # if not self.redis_conn.sismember("key_news:pl", entity_url):
                 self.entity_spider(entity_url, items)
-                    # pool.submit(self.entity_spider, entity_url=entity_url, items=items)
+                # pool.submit(self.entity_spider, entity_url=entity_url, items=items)
                 # else:
                 #     url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
                 #     url_host = url_host.replace("www.", "")
@@ -164,6 +174,10 @@ class HeadSpider(Base_spider):
             else:
                 other_req = False
             responses = req_get(entity_url, headers=self.headers, proxies=self.is_proxies, other_req=other_req)
+            if str(responses.status_code) in self.pro_result:
+                self.pro_result[str(responses.status_code)] += 1
+            else:
+                self.pro_result[str(responses.status_code)] = 1
             logger.info(f"实体页链接：{entity_url},响应码：{responses.status_code}")
             if items.get("char"):
                 tree = etree.HTML(responses.content.decode(items.get("char"), 'ignore'))
