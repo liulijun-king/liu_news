@@ -54,8 +54,8 @@ class HeadSpider(Base_spider):
     def id_split(self):
         data_dict = self.module
         for key, value in data_dict.items():
-            # if "美国《华盛顿邮报" in value.get("website_name"):
-            self.history_spider(key, value)
+            if re.search("(北京之春|美国倍可亲|英国BBC|博谈网)",value.get("website_name")):
+                self.history_spider(key, value)
 
     def id_split_thread(self):
         data_dict = self.module
