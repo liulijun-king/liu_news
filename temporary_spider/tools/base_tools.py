@@ -20,7 +20,6 @@ from pymysql.converters import escape_string
 from retrying import retry
 
 from tools.req_tools import req_chrome_get, req_chrome_post
-from tools.proxy_get import queue_empty
 
 
 def retry_error(exception):
