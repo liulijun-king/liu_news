@@ -42,8 +42,7 @@ class HeadSpider(Base_spider):
         self.hw_db = hw_db
         self.kafka_pro = kafka_pro
         self.redis_conn = redis_conn
-        self.source_result = {}
-        self.pro_result = {}
+        # self.source_result = {}
 
     def get_cookie(self, url):
         if "vot.org" in url:
@@ -79,10 +78,6 @@ class HeadSpider(Base_spider):
             url = url.format(str(page))
             logger.info(f"当前采集链接：{url}，页码：{page}")
             response = req_get(url, headers=self.headers, proxies=self.is_proxies)
-            if str(response.status_code) in self.pro_result:
-                self.pro_result[str(response.status_code)] += 1
-            else:
-                self.pro_result[str(response.status_code)] = 1
             if items.get("char"):
                 html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
             else:
@@ -96,12 +91,12 @@ class HeadSpider(Base_spider):
                 if not self.redis_conn.sismember("key_news:pl", entity_url):
                     self.entity_spider(entity_url, items)
                 else:
-                    url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
-                    url_host = url_host.replace("www.", "")
-                    if self.source_result.get(url_host):
-                        self.source_result[url_host] += 1
-                    else:
-                        self.source_result[url_host] = 1
+                    # url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
+                    # url_host = url_host.replace("www.", "")
+                    # if self.source_result.get(url_host):
+                    #     self.source_result[url_host] += 1
+                    # else:
+                    #     self.source_result[url_host] = 1
                     logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{e}")
@@ -115,10 +110,6 @@ class HeadSpider(Base_spider):
             else:
                 other_req = False
             response = req_get(url, headers=self.headers, proxies=self.is_proxies, other_req=other_req, verify=True)
-            if str(response.status_code) in self.pro_result:
-                self.pro_result[str(response.status_code)] += 1
-            else:
-                self.pro_result[str(response.status_code)] = 1
             logger.info(f"测试站点:{items['module_name']},响应状态：{response.status_code}")
             if items.get("char"):
                 html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
@@ -133,12 +124,12 @@ class HeadSpider(Base_spider):
                 if not self.redis_conn.sismember("key_news:pl", entity_url):
                     self.entity_spider(entity_url, items)
                 else:
-                    url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
-                    url_host = url_host.replace("www.", "")
-                    if self.source_result.get(url_host):
-                        self.source_result[url_host] += 1
-                    else:
-                        self.source_result[url_host] = 1
+                    # url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
+                    # url_host = url_host.replace("www.", "")
+                    # if self.source_result.get(url_host):
+                    #     self.source_result[url_host] += 1
+                    # else:
+                    #     self.source_result[url_host] = 1
                     logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{traceback.format_exc()}")
@@ -169,10 +160,6 @@ class HeadSpider(Base_spider):
             else:
                 other_req = False
             responses = req_get(entity_url, headers=self.headers, proxies=self.is_proxies, other_req=other_req)
-            if str(responses.status_code) in self.pro_result:
-                self.pro_result[str(responses.status_code)] += 1
-            else:
-                self.pro_result[str(responses.status_code)] = 1
             logger.info(f"实体页链接：{entity_url},响应码：{responses.status_code}")
             if items.get("char"):
                 tree = etree.HTML(responses.content.decode(items.get("char"), 'ignore'))
@@ -210,8 +197,8 @@ class HeadSpider(Base_spider):
                     if re.search("(data:image/gif|\.gif)", relay_img[0]) or not re.search("^http", relay_img[0]):
                         continue
                     images.append(url_join(entity_url, relay_img[0]))
-            # img_list = self.sava_img(images)
-            img_list = ""
+            img_list = self.sava_img(images)
+            # img_list = ""
             video = self.video_del(video_css, tree, entity_url)
             accessory = self.get_files(accessory_css, tree, entity_url, "pdf$")
             item = {
@@ -248,10 +235,10 @@ class HeadSpider(Base_spider):
             # print(json.dumps(item, ensure_ascii=False, indent=4))
             self.send_data("topic_c1_original_keynewswebsites", item)
             self.redis_conn.sadd("key_news:pl", item['source_url'])
-            if self.source_result.get(host.replace("www.", '')):
-                self.source_result[host.replace("www.", '')] += 1
-            else:
-                self.source_result[host.replace("www.", '')] = 1
+            # if self.source_result.get(host.replace("www.", '')):
+            #     self.source_result[host.replace("www.", '')] += 1
+            # else:
+            #     self.source_result[host.replace("www.", '')] = 1
         except Exception:
             logger.error(f"实体页采集出错！{traceback.format_exc()}")
 
