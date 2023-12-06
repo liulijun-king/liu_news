@@ -29,6 +29,7 @@ def add_id():
         pipeline = redis_conn.pipeline()
         pipeline.llen(id_key)
         key_len = pipeline.execute()[0]
+        logger.info(f"redis数据库长度为{key_len}")
         if key_len < 1000000:
             for _ in range(max_id, max_id + 10000000):
                 id_ = str(_)

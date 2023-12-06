@@ -26,6 +26,6 @@ headers = {
 }
 
 response = requests.get('https://github.com/cafebazaar', headers=headers, proxies={
-    "http": "http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333",
-    'https': "http://shengmingxing_zxcj-zone-custom:zxc_2023@679e234e86e0ed04.na.ipidea.online:2333"})
+    "http": "http://shengmingxing_zxcj-zone-custom:wzcj_2023@679e234e86e0ed04.na.ipidea.online:2333",
+    'https': "http://shengmingxing_zxcj-zone-custom:wzcj_2023@679e234e86e0ed04.na.ipidea.online:2333"})
 print(response.content.decode())
