@@ -19,7 +19,7 @@ from loguru import logger
 from lxml import etree
 
 from base_spider import Base_spider
-from tools.base_tools import req_get, get_md5, time_deal, get_date, get_file_type, url_join
+from tools.base_tools import req_get, get_md5, time_deal, get_date, get_file_type, url_join, str_for_time
 from tools.mini_down import MiniDown
 
 
@@ -234,6 +234,9 @@ class HeadSpider(Base_spider):
                 "exists_typeset": 0,
             }
             # print(json.dumps(item, ensure_ascii=False, indent=4))
+            if re.search("法广新闻网", item.get('website_name')):
+                if int(time.time()) - str_for_time(item.get('pubtime')) > 3600 * 24 * 5:
+                    return
             self.send_data("topic_c1_original_keynewswebsites", item)
             self.redis_conn.sadd("key_news:pl", item['source_url'])
             # if self.source_result.get(host.replace("www.", '')):

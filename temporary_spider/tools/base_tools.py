@@ -594,5 +594,15 @@ def get_files_type(file_url):
         return "pdf"
 
 
+def str_for_time(date_string, date_format="%Y-%m-%d %H:%M:%S"):
+    """
+    字符串转时间戳
+    :param date_string:
+    :param date_format:
+    :return:
+    """
+    timestamp = int(datetime.strptime(date_string, date_format).timestamp())
+    return timestamp
+
 if __name__ == '__main__':
     print(get_date(1))
