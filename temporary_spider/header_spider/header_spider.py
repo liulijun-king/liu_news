@@ -234,9 +234,9 @@ class HeadSpider(Base_spider):
                 "exists_typeset": 0,
             }
             # print(json.dumps(item, ensure_ascii=False, indent=4))
-            if re.search("法广新闻网", item.get('website_name')):
-                if int(time.time()) - str_for_time(item.get('pubtime')) > 3600 * 24 * 5:
-                    return
+            if int(time.time()) - str_for_time(item.get('pubtime')) > 3600 * 24 * 5:
+                self.redis_conn.sadd("key_news:pl", item['source_url'])
+                return
             self.send_data("topic_c1_original_keynewswebsites", item)
             self.redis_conn.sadd("key_news:pl", item['source_url'])
             # if self.source_result.get(host.replace("www.", '')):
