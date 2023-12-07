@@ -87,6 +87,7 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(items.get("lis_xpath"))
             else:
                 lis = re.findall(items.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
+            logger.info(f"测试站点:{items['module_name']},响应状态：{response.status_code},数据长度{len(lis)}")
             for li in lis:
                 entity_url = url_join(url, li).strip()
                 if not self.redis_conn.sismember("key_news:pl", entity_url):
@@ -111,7 +112,6 @@ class HeadSpider(Base_spider):
             else:
                 other_req = False
             response = req_get(url, headers=self.headers, proxies=self.is_proxies, other_req=other_req, verify=True)
-            logger.info(f"测试站点:{items['module_name']},响应状态：{response.status_code}")
             if items.get("char"):
                 html = etree.HTML(response.content.decode(items.get("char"), "ignore"))
             else:
@@ -120,6 +120,7 @@ class HeadSpider(Base_spider):
                 lis = html.xpath(items.get("lis_xpath"))
             else:
                 lis = re.findall(items.get("lis_xpath"), response.content.decode("utf-8", "ignore"))
+            logger.info(f"测试站点:{items['module_name']},响应状态：{response.status_code},数据长度{len(lis)}")
             for li in lis:
                 entity_url = url_join(url, li).strip()
                 if not self.redis_conn.sismember("key_news:pl", entity_url):
