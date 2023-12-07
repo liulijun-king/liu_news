@@ -201,15 +201,15 @@
     "accessory_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//file"
   },
   "bloomberg.com": {
-    "title_xpath": "//article[@class='gridLayout_gridLayout__qR36f first-story']//h1",
+    "title_xpath": "//article[contains(@class,'first-story')]//h1",
     "author_xpath": "//span[@class='author']",
     "pubtime_css": "//meta[@name='parsely-pub-date']/@content",
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='styles_content__sZ2qm']//p",
-    "img_css": "//div[@class='styles_content__sZ2qm']//img",
-    "video_css": "//div[@class='styles_content__sZ2qm']//p//video",
-    "accessory_css": "//div[@class='styles_content__sZ2qm']//p//file"
+    "html_x": "//div[@class='body-content']",
+    "img_css": "//div[@class='body-content']//img",
+    "video_css": "//div[@class='body-content']//video",
+    "accessory_css": "//div[@class='body-content']//file"
   },
   "botanwang.com": {
     "title_xpath": "//h1[@id='page-title']",

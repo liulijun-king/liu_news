@@ -13495,7 +13495,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//div[@class='styles_storyInfo__0dHbp']/div/div/a/@href|//article/div/div/a//div[@class='styles_storyInfo__0dHbp']/div/a/@href|//div[@class='hover:underline focus:underline']/a/@href|//article[@class='styles_storyBlock___VcwR']/div/a/h3/@href",
+      "lis_xpath": "//div[@class='styles_storyInfo__0dHbp']/div/div/a/@href|//article/div/div/a//div[@class='styles_storyInfo__0dHbp']/div/a/@href|//div[@class='hover:underline focus:underline']/a/@href|//article[@class='styles_storyBlock___VcwR']/div/a/@href",
       "spider_module": "html"
     },
     "https://www.bloomberg.com/topics/cloud-computing": {
@@ -13512,7 +13512,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//div[@class='styles_storyInfo__0dHbp']/div/div/a/@href|//article/div/div/a//div[@class='styles_storyInfo__0dHbp']/div/a/@href|//div[@class='hover:underline focus:underline']/a/@href|//article[@class='styles_storyBlock___VcwR']/div/a/h3/@href",
+      "lis_xpath": "//div[@class='styles_storyInfo__0dHbp']/div/div/a/@href|//article/div/div/a//div[@class='styles_storyInfo__0dHbp']/div/a/@href|//div[@class='hover:underline focus:underline']/a/@href|//article[@class='styles_storyBlock___VcwR']/div/a/@href",
       "spider_module": "html"
     },
     "https://www.bloomberg.com/topics/artificial-intelligence": {
@@ -13529,7 +13529,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//div[@class='styles_storyInfo__0dHbp']/div/div/a/@href|//article/div/div/a//div[@class='styles_storyInfo__0dHbp']/div/a/@href|//div[@class='hover:underline focus:underline']/a/@href|//article[@class='styles_storyBlock___VcwR']/div/a/h3/@href",
+      "lis_xpath": "//div[@class='styles_storyInfo__0dHbp']/div/div/a/@href|//article/div/div/a//div[@class='styles_storyInfo__0dHbp']/div/a/@href|//div[@class='hover:underline focus:underline']/a/@href|//article[@class='styles_storyBlock___VcwR']/div/a/@href",
       "spider_module": "html"
     },
     "https://dafahao.com": {
