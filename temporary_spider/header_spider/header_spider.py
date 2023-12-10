@@ -245,7 +245,7 @@ class HeadSpider(Base_spider):
             # else:
             #     self.source_result[host.replace("www.", '')] = 1
         except Exception:
-            logger.error(f"实体页采集出错！{traceback.format_exc()}")
+            logger.error(f"实体页采集出错！{traceback.format_exc()}，详情链接：\n{entity_url}")
 
     def sava_img(self, images):
         end_result = []
