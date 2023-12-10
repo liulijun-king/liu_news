@@ -123,17 +123,6 @@
     "video_css": "//div[contains(@class,'tdb_single_content')]/div[@class='tdb-block-inner td-fix-index']//video",
     "accessory_css": "//div[contains(@class,'tdb_single_content')]/div[@class='tdb-block-inner td-fix-index']//file"
   },
-  "amnesty.org": {
-    "title_xpath": "//h1[@id='article-title']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//meta[@property='article:published_time']/@content",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//article[@class='article-content ']/p|//article[@class='article-content ']/h2",
-    "img_css": "//img[@class='attachment-hero-md size-hero-md']|//article[@class='article-content ']//img",
-    "video_css": "//article[@class='article-content ']/p//video|//article[@class='article-content ']/h2//video",
-    "accessory_css": "//article[@class='article-content ']/p//file|//article[@class='article-content ']/h2//file"
-  },
   "backchina.com": {
     "title_xpath": "//h1[@class='ph']",
     "author_xpath": "//span[@class='author']",
@@ -156,17 +145,6 @@
     "video_css": "//div[@class='entry']/p//video",
     "accessory_css": "//div[@class='entry']/p//file"
   },
-  "bloomberg.com": {
-    "title_xpath": "//article[contains(@class,'first-story')]//h1",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//meta[@name='parsely-pub-date']/@content",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='body-content']",
-    "img_css": "//div[@class='body-content']//img",
-    "video_css": "//div[@class='body-content']//video",
-    "accessory_css": "//div[@class='body-content']//file"
-  },
   "botanwang.com": {
     "title_xpath": "//h1[@id='page-title']",
     "author_xpath": "//div[@class='field field-name-field-author-tag field-type-taxonomy-term-reference field-label-inline clearfix']//div[@class='field-item even']/a",
@@ -188,17 +166,6 @@
     "img_css": "//div[@class='post-single-content box mark-links']//img",
     "video_css": "//div[@class='post-single-content box mark-links']//p//video",
     "accessory_css": "//div[@class='post-single-content box mark-links']//p//file"
-  },
-  "boxun.com": {
-    "title_xpath": "//h1[@class='entry-title']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//time[@class='entry-date published']",
-    "abstract_xpath": "//header[@class='entry-header']/p",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='entry-content']/p",
-    "img_css": "//div[@class='entry-content']//img",
-    "video_css": "//div[@class='entry-content']/p//video",
-    "accessory_css": "//div[@class='entry-content']/p//file"
   },
   "cbc.ca": {
     "title_xpath": "//h1[@class='detailHeadline']",
@@ -320,17 +287,6 @@
     "img_css": "//div[@class='raw-style']//img",
     "video_css": "//div[@class='raw-style']//p//video",
     "accessory_css": "//div[@class='raw-style']//p//file"
-  },
-  "nikkei.com": {
-    "title_xpath": "//h1[contains(@class,'title')]",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[contains(@class,'Timestamp')]/time|//div[contains(@class,'timeStamp')]/time",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//section[contains(@class,'container')]/p",
-    "img_css": "//section[contains(@class,'container')]//img",
-    "video_css": "//section[contains(@class,'container')]//video",
-    "accessory_css": "//section[contains(@class,'container')]//file"
   },
   "ntdtv.com": {
     "title_xpath": "//div[@class='article_title']/h1",
@@ -585,72 +541,6 @@
     "video_css": "//div[@class='post-content entry-content']/p//video|//div[@class='post-content entry-content']/h3//video",
     "accessory_css": "//div[@class='post-content entry-content']/p//file|//div[@class='post-content entry-content']/h3//file"
   },
-  "amnesty.org.au": {
-    "title_xpath": "//h1[@class='title']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//meta[@property='article:published_time']/@content",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//article[@class='content']/h3|//article[@class='content']//li|//article[@class='content']//p",
-    "img_css": "//article[@class='content']//img",
-    "video_css": "//article[@class='content']/h3//video|//article[@class='content']//li//video|//article[@class='content']//p//video",
-    "accessory_css": "//article[@class='content']/h3//file|//article[@class='content']//li//file|//article[@class='content']//p//file"
-  },
-  "amnesty.org.uk": {
-    "title_xpath": "//h1[@class='article__title']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='article-info sidebar-block--info hidden-sm hidden-xs']",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='article']//p",
-    "img_css": "//div[@class='article']//img",
-    "video_css": "//div[@class='article']//video",
-    "accessory_css": "//div[@class='article']//file"
-  },
-  "news.creaders.net": {
-    "title_xpath": "//h1[@class='STYLE3']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='infometa STYLE4']",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@id='newsContent']",
-    "img_css": "//div[@id='newsContent']//img",
-    "video_css": "//div[@id='newsContent']//video",
-    "accessory_css": "//div[@id='newsContent']//file"
-  },
-  "tech.creaders.net": {
-    "title_xpath": "//h1[@class='STYLE3']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='infometa STYLE4']",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@id='newsContent']",
-    "img_css": "//div[@id='newsContent']//img",
-    "video_css": "//div[@id='newsContent']//video",
-    "accessory_css": "//div[@id='newsContent']//file"
-  },
-  "finance.creaders.net": {
-    "title_xpath": "//h1[@class='STYLE3']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='infometa STYLE4']",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@id='newsContent']",
-    "img_css": "//div[@id='newsContent']//img",
-    "video_css": "//div[@id='newsContent']//video",
-    "accessory_css": "//div[@id='newsContent']//file"
-  },
-  "sports.creaders.net": {
-    "title_xpath": "//h1[@class='STYLE3']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='infometa STYLE4']",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@id='newsContent']",
-    "img_css": "//div[@id='newsContent']//img",
-    "video_css": "//div[@id='newsContent']//video",
-    "accessory_css": "//div[@id='newsContent']//file"
-  },
   "blog.medium.com": {
     "title_xpath": "//div[@class='ab ca']/div[@class='ch bg dx dy dz ea']/div/h1",
     "author_xpath": "//span[@class='author']",
@@ -749,17 +639,6 @@
     "img_css": "//div[@class='article-body']//img",
     "video_css": "//div[@class='article-body']/p//video",
     "accessory_css": "//div[@class='article-body']/p//file"
-  },
-  "elpais.com": {
-    "title_xpath": "//h1[@class='a_t']",
-    "author_xpath": "//a[@class='a_md_a_n']",
-    "pubtime_css": "//a[@id='article_date_p']/@data-date",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='a_c clearfix']/p|//div[@class='a_c clearfix']//div[@class='raw_html']//p",
-    "img_css": "//img[@class='_re a_m-h']|//div[@class='a_c clearfix']//img",
-    "video_css": "//div[@class='a_c clearfix']/p//video",
-    "accessory_css": "//div[@class='a_c clearfix']/p//file"
   },
   "epochtimes.com": {
     "title_xpath": "//h1[@class='title']",
@@ -914,5 +793,214 @@
     "img_css": "//picture/img",
     "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
     "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "nikkei.com": {
+    "title_xpath": "//h1[contains(@class,'title')]|//header[contains(@class,'article-section-header')]/h1",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[contains(@class,'Timestamp')]/time|//div[contains(@class,'timeStamp')]/time|//div[contains(@class,'article-section-header')]/time",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//section[contains(@class,'container')]/p|//section[contains(@class,'container')]/div|//article[contains(@class,'article-')]",
+    "img_css": "//section[contains(@class,'container')]//img",
+    "video_css": "//section[contains(@class,'container')]//video",
+    "accessory_css": "//section[contains(@class,'container')]//file"
+  },
+  "elpais.com": {
+    "title_xpath": "//h1[@class='a_t']",
+    "author_xpath": "//a[@class='a_md_a_n']",
+    "pubtime_css": "//a[@id='article_date_p']/@data-date|//time[@id='article_date_u']/@datetime",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='a_c clearfix']/p",
+    "img_css": "//img[@class='_re a_m-h']|//div[@class='a_c clearfix']//img",
+    "video_css": "//div[@class='a_c clearfix']/p//video",
+    "accessory_css": "//div[@class='a_c clearfix']/p//file"
+  },
+  "cincodias.elpais.com": {
+    "title_xpath": "//h1[@class='a_t']",
+    "author_xpath": "//a[@class='a_md_a_n']",
+    "pubtime_css": "//a[@id='article_date_p']/@data-date",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='a_c clearfix']/p",
+    "img_css": "//img[@class='_re a_m-h']|//div[@class='a_c clearfix']//img",
+    "video_css": "//div[@class='a_c clearfix']/p//video",
+    "accessory_css": "//div[@class='a_c clearfix']/p//file"
+  },
+  "motor.elpais.com": {
+    "title_xpath": "//h1[@class='entry-title']",
+    "author_xpath": "//span[contains(@class,'author')]",
+    "pubtime_css": "//time[@class='entry-date published']",
+    "abstract_xpath": "//h2[@class='entry-header__subtitulo']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='content__main__content']",
+    "img_css": "//div[@class='content__main__content']//img",
+    "video_css": "//div[@class='content__main__content']//video",
+    "accessory_css": "//div[@id='artbody']/p//file"
+  },
+  "amnesty.org": {
+    "title_xpath": "//h1[@id='article-title']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//article[contains(@class,'article-content')]",
+    "img_css": "//img[@class='attachment-hero-md size-hero-md']|//article[@class='article-content ']//img",
+    "video_css": "//article[@class='article-content ']/p//video|//article[@class='article-content ']/h2//video",
+    "accessory_css": "//article[@class='article-content ']/p//file|//article[@class='article-content ']/h2//file"
+  },
+  "amnesty.org.au": {
+    "title_xpath": "//h1[contains(@class,'title')]",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//article[@class='content']/h3|//article[@class='content']//li|//article[@class='content']//p",
+    "img_css": "//article[@class='content']//img",
+    "video_css": "//article[@class='content']/h3//video|//article[@class='content']//li//video|//article[@class='content']//p//video",
+    "accessory_css": "//article[@class='content']/h3//file|//article[@class='content']//li//file|//article[@class='content']//p//file"
+  },
+  "amnesty.org.uk": {
+    "title_xpath": "//h1[contains(@class,'title')]",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='article-info sidebar-block--info hidden-sm hidden-xs']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='article']//p",
+    "img_css": "//div[@class='article']//img",
+    "video_css": "//div[@class='article']//video",
+    "accessory_css": "//div[@class='article']//file"
+  },
+  "bloomberg.com": {
+    "title_xpath": "//article[contains(@class,'first-story')]//h1",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//meta[@name='parsely-pub-date']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='body-content']|//div[contains(@class,'styles_body')]",
+    "img_css": "//div[@class='body-content']//img",
+    "video_css": "//div[@class='body-content']//video",
+    "accessory_css": "//div[@class='body-content']//file"
+  },
+  "boxun.com": {
+    "title_xpath": "//h1[@class='entry-title']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//time[@class='entry-date published']|//time[contains(@class,'entry-date')]",
+    "abstract_xpath": "//header[@class='entry-header']/p",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='entry-content']/p",
+    "img_css": "//div[@class='entry-content']//img",
+    "video_css": "//div[@class='entry-content']/p//video",
+    "accessory_css": "//div[@class='entry-content']/p//file"
+  },
+  "news.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "digest.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "fashion.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "travel.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "auto.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "sports.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "digi.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "blog.creaders.net": {
+    "title_xpath": "//a[@class='diary_title']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//td[@class='diary_release_date']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//td[@class='diary_content']",
+    "img_css": "//td[@class='diary_content']//img",
+    "video_css": "//td[@class='diary_content']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "tech.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
+  },
+  "finance.creaders.net": {
+    "title_xpath": "//h1[@class='STYLE3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='infometa STYLE4']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='newsContent']",
+    "img_css": "//div[@id='newsContent']//img",
+    "video_css": "//div[@id='newsContent']//video",
+    "accessory_css": "//div[@id='newsContent']//file"
   }
 }
