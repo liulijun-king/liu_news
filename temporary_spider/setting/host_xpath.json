@@ -79,17 +79,6 @@
     "img_css": "//div[@id='zoom']//img",
     "video_css": "//div[@id='zoom']//video"
   },
-  "beijingspring.com": {
-    "title_xpath": "//div[@class='unnamed2']/b",
-    "author_xpath": "//div[@class='unnamed2']/font",
-    "pubtime_css": "//div[@class='unnamed2']/font",
-    "abstract_xpath": "//td[@class='unnamed2']/b[contains(@id,'docs-internal-guid')]/p[1]",
-    "source_xpath": "//div[@class='unnamed2']/font",
-    "html_x": "//tr[6]/td[@class='unnamed2']",
-    "img_css": "//tr[6]/td[@class='unnamed2']//img",
-    "video_css": "//tr[6]/td[@class='unnamed2']//video",
-    "accessory_css": "//tr[6]/td[@class='unnamed2']//file"
-  },
   "chinadigitaltimes.net": {
     "title_xpath": "//h1[@class='entry-title']",
     "author_xpath": "//div[@class='unnamed2']/font",
@@ -112,17 +101,6 @@
     "video_css": "//div[@id='page-container'][1]//div[@class='post-content entry-content']//video",
     "accessory_css": "//div[@id='page-container'][1]//div[@class='post-content entry-content']//file"
   },
-  "orientaldaily.on.cc": {
-    "title_xpath": "//h1[@class='title']",
-    "author_xpath": "//div[@class='unnamed2']/font",
-    "pubtime_css": "//meta[@name='articleDate']/@content",
-    "abstract_xpath": "//div[@class='articleContent']/div[@class='paragraph leadin']/div[@class='content']",
-    "source_xpath": "//div[@class='unnamed2']/font",
-    "html_x": "//div[@class='articleContent']/div[@class='paragraph']",
-    "img_css": "//figure[@class='pswp__figure ']/a/div[@class='smallpic']/img|//div[@class='articleContent']/div[@class='paragraph']//img|//div[@class='photo']/figure[@class='pswp__figure']/a/div[@class='smallpic']/img",
-    "video_css": "//div[@class='articleContent']/div[@class='paragraph']//video",
-    "accessory_css": "//div[@class='articleContent']/div[@class='paragraph']//file"
-  },
   "vot.org": {
     "title_xpath": "//h1[@class='tdb-title-text']",
     "author_xpath": "//div[@class='unnamed2']/font",
@@ -144,17 +122,6 @@
     "img_css": "//div[contains(@class,'tdb_single_content')]/div[@class='tdb-block-inner td-fix-index']//img",
     "video_css": "//div[contains(@class,'tdb_single_content')]/div[@class='tdb-block-inner td-fix-index']//video",
     "accessory_css": "//div[contains(@class,'tdb_single_content')]/div[@class='tdb-block-inner td-fix-index']//file"
-  },
-  "aboluowang.com": {
-    "title_xpath": "//h1",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//meta[@property='article:published_time']/@content",
-    "abstract_xpath": "//section[@id='summary']",
-    "source_xpath": "//meta[@property='og:site_name']/@content",
-    "html_x": "//article[@id='content']/p",
-    "img_css": "//article[@id='content']//img",
-    "video_css": "//article[@id='content']/p//video",
-    "accessory_css": "//article[@id='content']/p//file"
   },
   "amnesty.org": {
     "title_xpath": "//h1[@id='article-title']",
@@ -188,17 +155,6 @@
     "img_css": "//div[@class='entry']//img",
     "video_css": "//div[@class='entry']/p//video",
     "accessory_css": "//div[@class='entry']/p//file"
-  },
-  "bbc.com": {
-    "title_xpath": "//h1[@id='main-heading']",
-    "author_xpath": "//div[@class='ssrcss-68pt20-Text-TextContributorName e8mq1e96']",
-    "pubtime_css": "//time/@datetime",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p",
-    "img_css": "//main[@id='main-content']//img",
-    "video_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//video",
-    "accessory_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//file"
   },
   "bloomberg.com": {
     "title_xpath": "//article[contains(@class,'first-story')]//h1",
@@ -309,39 +265,6 @@
     "img_css": "//section[@class='css-1ugvd2u e18wk22u0']//img|//div[@class='css-er00if e1whazj12']//img",
     "video_css": "//div[@class='css-er00if e1whazj12']/p//video",
     "accessory_css": "//div[@class='css-er00if e1whazj12']/p//file"
-  },
-  "elpais.com": {
-    "title_xpath": "//h1[@class='a_t']",
-    "author_xpath": "//a[@class='a_md_a_n']",
-    "pubtime_css": "//a[@id='article_date_p']/@data-date",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='a_c clearfix']/p",
-    "img_css": "//img[@class='_re a_m-h']|//div[@class='a_c clearfix']//img",
-    "video_css": "//div[@class='a_c clearfix']/p//video",
-    "accessory_css": "//div[@class='a_c clearfix']/p//file"
-  },
-  "epochtimes.com": {
-    "title_xpath": "//h1[@class='title']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='info']/time",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@id='artbody']/p",
-    "img_css": "//div[@class='featured_image']//img|//div[@id='artbody']//img",
-    "video_css": "//div[@id='artbody']/p//video",
-    "accessory_css": "//div[@id='artbody']/p//file"
-  },
-  "hk.epochtimes.com": {
-    "title_xpath": "//h1[@class='article-headline']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//div[@class='date']",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//section[@class='article-body']/p",
-    "img_css": "//a[@class='image-link']/img",
-    "video_css": "//section[@class='article-body']/p//video",
-    "accessory_css": "//section[@class='article-body']/p//file"
   },
   "globalnewstv.com.tw": {
     "title_xpath": "//h1[@class='jeg_post_title']",
@@ -585,17 +508,6 @@
     "video_css": "//div[@class='wsw']/P//video",
     "accessory_css": "//div[@class='wsw']/P//file"
   },
-  "washingtonpost.com": {
-    "title_xpath": "//h1[@id='main-content']",
-    "author_xpath": "//a[@class='wpds-c-cNdzuP wpds-c-cNdzuP-ejzZdU-isLink-true']",
-    "pubtime_css": "//meta[@property='article:published_time']/@content",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='article-body']/p",
-    "img_css": "//div[@class='article-body']//img",
-    "video_css": "//div[@class='article-body']/p//video",
-    "accessory_css": "//div[@class='article-body']/p//file"
-  },
   "wsj.com": {
     "title_xpath": "//h1",
     "author_xpath": "//span[@class='css-1wc2zh5']|//a[@class='css-tuctgt-AuthorLink e10pnb9y0']",
@@ -815,5 +727,192 @@
     "img_css": "//div[@class='u-container']/section[contains(@class,'section__content')]//img",
     "video_css": "//div[@class='entry']//video",
     "accessory_css": "//div[@class='entry']//file"
+  },
+  "aboluowang.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//section[@id='summary']",
+    "source_xpath": "//meta[@property='og:site_name']/@content",
+    "html_x": "//article[@id='content']/p|//article[@id='content']/div[@class='article_info']//p|//article[@id='content']/div[@id='headerimg']//span|//div[@id='Article']/article[@id='content']/div[@class='articlecontent']/*",
+    "img_css": "//article[@id='content']//img",
+    "video_css": "//article[@id='content']/p//video",
+    "accessory_css": "//article[@id='content']/p//file"
+  },
+  "washingtonpost.com": {
+    "title_xpath": "//h1[@id='main-content']",
+    "author_xpath": "//a[@class='wpds-c-cNdzuP wpds-c-cNdzuP-ejzZdU-isLink-true']",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='article-body']/p|//div[@data-qa='article-body']/p",
+    "img_css": "//div[@class='article-body']//img",
+    "video_css": "//div[@class='article-body']/p//video",
+    "accessory_css": "//div[@class='article-body']/p//file"
+  },
+  "elpais.com": {
+    "title_xpath": "//h1[@class='a_t']",
+    "author_xpath": "//a[@class='a_md_a_n']",
+    "pubtime_css": "//a[@id='article_date_p']/@data-date",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='a_c clearfix']/p|//div[@class='a_c clearfix']//div[@class='raw_html']//p",
+    "img_css": "//img[@class='_re a_m-h']|//div[@class='a_c clearfix']//img",
+    "video_css": "//div[@class='a_c clearfix']/p//video",
+    "accessory_css": "//div[@class='a_c clearfix']/p//file"
+  },
+  "epochtimes.com": {
+    "title_xpath": "//h1[@class='title']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='info']/time",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='artbody']/p|//div[@class='whitebg']/p|//div[@class='art-content']/p",
+    "img_css": "//div[@class='featured_image']//img|//div[@id='artbody']//img",
+    "video_css": "//div[@id='artbody']/p//video",
+    "accessory_css": "//div[@id='artbody']/p//file"
+  },
+  "hk.epochtimes.com": {
+    "title_xpath": "//h1[@class='article-headline']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//div[@class='date']|//div[@class='article-meta']/span[@class='date']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//section[@class='article-body']/p",
+    "img_css": "//a[@class='image-link']/img",
+    "video_css": "//section[@class='article-body']/p//video",
+    "accessory_css": "//section[@class='article-body']/p//file"
+  },
+  "beijingspring.com": {
+    "title_xpath": "//div[@class='unnamed2']/b",
+    "author_xpath": "//div[@class='unnamed2']/font",
+    "pubtime_css": "//div[@class='unnamed2']/font",
+    "abstract_xpath": "//td[@class='unnamed2']/b[contains(@id,'docs-internal-guid')]/p[1]",
+    "source_xpath": "//div[@class='unnamed2']/font",
+    "html_x": "//tr[6]/td[@class='unnamed2']|//div[@dir='ltr']|//p[@dir='ltr']|//span[@style='line-height:1.5']/span",
+    "img_css": "//tr[6]/td[@class='unnamed2']//img",
+    "video_css": "//tr[6]/td[@class='unnamed2']//video",
+    "accessory_css": "//tr[6]/td[@class='unnamed2']//file"
+  },
+  "orientaldaily.on.cc": {
+    "title_xpath": "//h1[@class='title']",
+    "author_xpath": "//div[@class='unnamed2']/font",
+    "pubtime_css": "//meta[@name='articleDate']/@content",
+    "abstract_xpath": "//div[@class='articleContent']/div[@class='paragraph leadin']/div[@class='content']",
+    "source_xpath": "//div[@class='unnamed2']/font",
+    "html_x": "//div[@class='articleContent']/div[@class='paragraph']|//div[@class='paragraph leadin']/div[@class='content']",
+    "img_css": "//figure[@class='pswp__figure ']/a/div[@class='smallpic']/img|//div[@class='articleContent']/div[@class='paragraph']//img|//div[@class='photo']/figure[@class='pswp__figure']/a/div[@class='smallpic']/img",
+    "video_css": "//div[@class='articleContent']/div[@class='paragraph']//video",
+    "accessory_css": "//div[@class='articleContent']/div[@class='paragraph']//file"
+  },
+  "bbc.com": {
+    "title_xpath": "//h1[@id='main-heading']",
+    "author_xpath": "//div[@class='ssrcss-68pt20-Text-TextContributorName e8mq1e96']",
+    "pubtime_css": "//time/@datetime",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p|//div[@class='qa-story-body story-body gel-pica gel-10/12@m gel-7/8@l gs-u-ml0@l gs-u-pb++']//p",
+    "img_css": "//main[@id='main-content']//img",
+    "video_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//video",
+    "accessory_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//file"
+  },
+  "bbc.co.uk": {
+    "title_xpath": "//h1[@id='main-heading']|//span[contains(@class,'title_')]",
+    "author_xpath": "//div[@class='ssrcss-68pt20-Text-TextContributorName e8mq1e96']",
+    "pubtime_css": "//time/@datetime",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p|//article[@id='post_657051d269d486126e9412e7']//div[@class='lx-stream-post-body']/p",
+    "img_css": "//main[@id='main-content']//img",
+    "video_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//video",
+    "accessory_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//file"
+  },
+  "lessig.medium.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "towardsdatascience.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "arcturus.chireviewofbooks.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "zimberoff.medium.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "uxdesign.cc": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "rachelaudige.medium.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "meeraganapathi.medium.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
+  },
+  "levelup.gitconnected.com": {
+    "title_xpath": "//h1",
+    "author_xpath": "//p[contains(@class,'be b h')]/a",
+    "pubtime_css": "//meta[@property='article:published_time']/@content",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@class='ab ca']/div/p",
+    "img_css": "//picture/img",
+    "video_css": "//div[@class='ch bg dx dy dz ea']/p//video",
+    "accessory_css": "//div[@class='ch bg dx dy dz ea']/p//file"
   }
 }

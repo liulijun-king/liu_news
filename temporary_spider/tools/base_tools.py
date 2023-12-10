@@ -176,6 +176,10 @@ def time_deal(need_time):
         need_time = f"{need_time[6:]}-{need_time[3:6]}-{need_time[:2]}"
         need_time = time_parse(need_time)
         return need_time
+    elif re.search(r"\d{4}.\d{2}.\d{1,2}\s\d{2}.\d{2}", need_time):
+        need_time = re.search(r"\d{4}.\d{2}.\d{1,2}\s\d{2}.\d{2}", need_time).group()
+        need_time = time_parse(need_time)
+        return need_time
     else:
         need_time = standardize_date(need_time)
         if not re.search(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}", need_time):
@@ -603,6 +607,7 @@ def str_for_time(date_string, date_format="%Y-%m-%d %H:%M:%S"):
     """
     timestamp = int(datetime.strptime(date_string, date_format).timestamp())
     return timestamp
+
 
 if __name__ == '__main__':
     print(get_date(1))
