@@ -1013,6 +1013,6 @@
     "img_css": "//div[@id='Content1']//img",
     "video_css": "//div[@id='Content1']/p//video",
     "accessory_css": "//div[@id='Content1']/p//file"
-  },
+  }
 
 }
