@@ -387,17 +387,6 @@
     "video_css": "//div[@class='article_right']//video",
     "accessory_css": "//div[@class='article_right']//file"
   },
-  "setn.com": {
-    "title_xpath": "//h1[@class='news-title-3']",
-    "author_xpath": "//span[@class='author']",
-    "pubtime_css": "//time[@class='page_date']",
-    "abstract_xpath": "//p[@class='abstract']",
-    "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@id='Content1']/p",
-    "img_css": "//div[@id='Content1']//img",
-    "video_css": "//div[@id='Content1']/p//video",
-    "accessory_css": "//div[@id='Content1']/p//file"
-  },
   "tw.yahoo.com": {
     "title_xpath": "//div[@class='caas-title-wrapper']/h1",
     "author_xpath": "//span[@class='author']",
@@ -685,14 +674,14 @@
     "accessory_css": "//div[@class='articleContent']/div[@class='paragraph']//file"
   },
   "bbc.com": {
-    "title_xpath": "//h1[@id='main-heading']",
+    "title_xpath": "//h1[@id='main-heading']|//header/h1[@id='page']|//div[contains(@class,'article-headline')]/h1",
     "author_xpath": "//div[@class='ssrcss-68pt20-Text-TextContributorName e8mq1e96']",
-    "pubtime_css": "//time/@datetime",
+    "pubtime_css": "//article[@class='article__body']//div[@class='author-unit']/div/span|//time/@datetime",
     "abstract_xpath": "//p[@class='abstract']",
     "source_xpath": "//span[@class='source']",
-    "html_x": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p|//div[@class='qa-story-body story-body gel-pica gel-10/12@m gel-7/8@l gs-u-ml0@l gs-u-pb++']//p",
-    "img_css": "//main[@id='main-content']//img",
-    "video_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//video",
+    "html_x": "//div[contains(@class,'body-text-card')]|//div[contains(@class,'Container')]/p|//article/div[contains(@class,'story-body')]",
+    "img_css": "//article/div[contains(@class,'story-body')]//img|//main[@id='main-content']//img",
+    "video_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//video|//article/div[contains(@class,'story-body')]//video",
     "accessory_css": "//div[@class='ssrcss-7uxr49-RichTextContainer e5tfeyi1']/p//file"
   },
   "bbc.co.uk": {
@@ -1002,5 +991,28 @@
     "img_css": "//div[@id='newsContent']//img",
     "video_css": "//div[@id='newsContent']//video",
     "accessory_css": "//div[@id='newsContent']//file"
-  }
+  },
+  "setn.com": {
+    "title_xpath": "//h1[@class='news-title-3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//time[@class='page_date']",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='Content1']/p",
+    "img_css": "//div[@id='Content1']//img",
+    "video_css": "//div[@id='Content1']/p//video",
+    "accessory_css": "//div[@id='Content1']/p//file"
+  },
+  "star.setn.com": {
+    "title_xpath": "//h1[@class='news-title-3']",
+    "author_xpath": "//span[@class='author']",
+    "pubtime_css": "//time",
+    "abstract_xpath": "//p[@class='abstract']",
+    "source_xpath": "//span[@class='source']",
+    "html_x": "//div[@id='ckuse']//p",
+    "img_css": "//div[@id='Content1']//img",
+    "video_css": "//div[@id='Content1']/p//video",
+    "accessory_css": "//div[@id='Content1']/p//file"
+  },
+
 }

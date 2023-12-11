@@ -172,8 +172,10 @@ class HeadSpider(Base_spider):
             author = tree.xpath(author_xpath)[0].xpath('string(.)') if tree.xpath(author_xpath) else ""
             author = re.sub(".*?作者[:：]|发表[:：].*", "", author)
             if tree.xpath(pubtime_css):
-                pubtime = tree.xpath(pubtime_css)[0] if pubtime_css.split("/")[-1].startswith("@") else \
-                    tree.xpath(pubtime_css)[0].xpath('string(.)')
+                try:
+                    pubtime = tree.xpath(pubtime_css)[0].xpath('string(.)')
+                except:
+                    pubtime = tree.xpath(pubtime_css)[0]
             else:
                 pubtime = ""
             pubtime = re.sub("(.*(发布时间|日期|时间|发表)\s{0,4}[:：]|来源[:：].*|Published)", "",
