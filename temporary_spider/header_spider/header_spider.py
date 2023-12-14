@@ -93,12 +93,6 @@ class HeadSpider(Base_spider):
                 if not self.redis_conn.sismember("key_news:pl", entity_url):
                     self.entity_spider(entity_url, items)
                 else:
-                    # url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
-                    # url_host = url_host.replace("www.", "")
-                    # if self.source_result.get(url_host):
-                    #     self.source_result[url_host] += 1
-                    # else:
-                    #     self.source_result[url_host] = 1
                     logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{e}")
@@ -126,12 +120,6 @@ class HeadSpider(Base_spider):
                 if not self.redis_conn.sismember("key_news:pl", entity_url):
                     self.entity_spider(entity_url, items)
                 else:
-                    # url_host = re.search("(?<=://).*?(?=/)", entity_url).group()
-                    # url_host = url_host.replace("www.", "")
-                    # if self.source_result.get(url_host):
-                    #     self.source_result[url_host] += 1
-                    # else:
-                    #     self.source_result[url_host] = 1
                     logger.info(f"重复数据，记录redis，数据链接：{entity_url}")
         except Exception as e:
             logger.error(f"列表页请求失败！{traceback.format_exc()}")
@@ -237,15 +225,9 @@ class HeadSpider(Base_spider):
                 "exists_typeset": 0,
             }
             # print(json.dumps(item, ensure_ascii=False, indent=4))
-            if int(time.time()) - str_for_time(item.get('pubtime')) > 3600 * 24 * 5:
-                self.redis_conn.sadd("key_news:pl", item['source_url'])
-                return
-            self.send_data("topic_c1_original_keynewswebsites", item)
+            if int(time.time()) - str_for_time(item.get('pubtime')) < 3600 * 24 * 5:
+                self.send_data("topic_c1_original_keynewswebsites", item)
             self.redis_conn.sadd("key_news:pl", item['source_url'])
-            # if self.source_result.get(host.replace("www.", '')):
-            #     self.source_result[host.replace("www.", '')] += 1
-            # else:
-            #     self.source_result[host.replace("www.", '')] = 1
         except Exception:
             logger.error(f"实体页采集出错！{traceback.format_exc()}，详情链接：\n{entity_url}")
 
