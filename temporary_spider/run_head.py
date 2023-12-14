@@ -24,6 +24,7 @@ if __name__ == '__main__':
         decode_responses=True, socket_connect_timeout=30, password='gew29YAyi'
     )
     print(redis_conn.sismember("key_news:pl", "https://www.rfi.fr/fr/afrique/20230111-en-visite-au-burkina-faso-sissoco-embalo-r%C3%A9affirme-le-soutien-de-la-c%C3%A9d%C3%A9ao"))
+    print(redis_conn.sismember("key_news:pl", "https://cn.wsj.com/articles/报道-私募股权投资公司thoma-bravo考虑收购twitter-11649979906"))
     # producer = KafkaProducer(
     #     bootstrap_servers=['172.22.100.90:9092'])
     # hw_obs = MiniDown()
