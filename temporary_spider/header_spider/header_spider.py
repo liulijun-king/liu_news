@@ -224,7 +224,6 @@ class HeadSpider(Base_spider):
                 'crawler_on': ip,
                 "exists_typeset": 0,
             }
-            # print(json.dumps(item, ensure_ascii=False, indent=4))
             if int(time.time()) - str_for_time(item.get('pubtime')) < 3600 * 24 * 5:
                 self.send_data("topic_c1_original_keynewswebsites", item)
             self.redis_conn.sadd("key_news:pl", item['source_url'])
@@ -257,15 +256,3 @@ class HeadSpider(Base_spider):
                 d_count = d_count + 1
                 logger.error(str(e))
 
-
-if __name__ == '__main__':
-    producer = KafkaProducer(
-        bootstrap_servers=['140.210.203.161:9092', '140.210.219.168:9092', '140.210.207.185:9092'])
-    hw_obs = MiniDown()
-    # "192.168.6.1:1984"
-    proxies = {
-        "http": "127.0.0.1:7890",
-        "https": "127.0.0.1:7890"
-    }
-    mp = HeadSpider(is_proxies=proxies, hw_db=hw_obs, kafka_pro=producer)
-    mp.id_split()
