@@ -166,7 +166,7 @@ class HeadSpider(Base_spider):
                     pubtime = tree.xpath(pubtime_css)[0]
             else:
                 pubtime = ""
-            pubtime = re.sub("(.*(发布时间|日期|时间|发表)\s{0,4}[:：]|来源[:：].*|Published)", "",
+            pubtime = re.sub("(.*(发布时间|日期|时间|发表)\s{0,4}[:：]|来源[:：].*|Published|更新)", "",
                              re.sub("[\n\r\t]", "", pubtime).strip()).strip()
             pubtime = time_deal(pubtime)
             abstract = tree.xpath(abstract_xpath)[0].xpath('string(.)') if tree.xpath(abstract_xpath) else ""
