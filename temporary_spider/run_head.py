@@ -23,8 +23,9 @@ if __name__ == '__main__':
         startup_nodes=startup_nodes,
         decode_responses=True, socket_connect_timeout=30, password='gew29YAyi'
     )
+    # 8.222.202.211:9092    172.22.100.90:9092
     producer = KafkaProducer(
-        bootstrap_servers=['172.22.100.90:9092'])
+        bootstrap_servers=['8.222.202.211:9092'])
     hw_obs = MiniDown()
     # http://shengmingxing_zxcj-zone-custom:wzcj_2023@679e234e86e0ed04.na.ipidea.online:2333
     # "http://f2199815664-region-SG-period-0:k0sl96zx@as.r618.kdlfps.com:18866/"
