@@ -226,7 +226,6 @@ class HeadSpider(Base_spider):
             }
             if int(time.time()) - str_for_time(item.get('pubtime')) < 3600 * 24 * 5:
                 self.send_data("topic_c1_original_keynewswebsites", item)
-            self.redis_conn.sadd("key_news:pl", item['source_url'])
         except Exception:
             logger.error(f"实体页采集出错！{traceback.format_exc()}，详情链接：\n{entity_url}")
 
@@ -250,6 +249,7 @@ class HeadSpider(Base_spider):
                 future = self.kafka_pro.send(topic, send_data.encode())
                 record_metadata = future.get(timeout=20)
                 if record_metadata:
+                    self.redis_conn.sadd("key_news:pl", item['source_url'])
                     logger.info(f'插入kafka成功')
                     break
             except Exception as e:
