@@ -2849,7 +2849,7 @@
       "max_page": 2,
       "start_page": 1,
       "page_size": 1,
-      "lis_xpath": "//ol[@class='hotStoryList']/li/a/@href|//li[@class='wellHeadline top']/h3/a/@href|//h3[@class='regularSummaryHeadline']/a/@href",
+      "lis_xpath": "//div[@id='leadNews']//h2/a/@href|//ul/li/h3/a/@href|//div[@id='leadNews']//h3/a/@href",
       "spider_module": "html"
     },
     "https://cn.nytimes.com/world": {
