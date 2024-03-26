@@ -25,7 +25,7 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
 }
 
-response = requests.get('https://github.com/cafebazaar', headers=headers, proxies={
+response = requests.get('https://api.github.com/repositories/146314499', headers=headers, proxies={
     "http": "http://f2199815664-region-US-period-0:k0sl96zx@us.r618.kdlfps.com:18866/",
     'https': "http://f2199815664-region-US-period-0:k0sl96zx@us.r618.kdlfps.com:18866/"})
 print(response.content.decode())
