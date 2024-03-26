@@ -36,8 +36,7 @@ class GithubMainSpider(scrapy.Spider):
             for _ in range(10000):
                 pipeline.rpop(id_key)
             id_list = pipeline.execute()
-
-            for _ in id_list:
+            for _ in ['146314499']:
                 if _:
                     try:
                         url = f"https://api.github.com/repositories/{_}"
