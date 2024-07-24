@@ -131,7 +131,7 @@ class GithubMainSpider(scrapy.Spider):
             # 用ref_url MD5
             item["uuid"] = md5(ref_url)
             # read me内容
-            item["readme"] = response.xpath("//div[@data-target='readme-toc.content']").xpath('string(.)').get("")
+            item["readme"] = response.xpath("//article[contains(@class,'markdown-body entry-content')]").xpath('string(.)').get("")
             # item["readme_html"] = response.xpath(json_path(config, "$.item_info.readme")).get("")
             # 基本信息
             item["website_name"] = 'GitHub'
